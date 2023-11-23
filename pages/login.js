@@ -155,7 +155,7 @@ const LoginPage = () => {
             </InputCard>
             <Register className="register">
               <p>
-                Don't have an account? <a href="#">Register</a>
+                Dont have an account? <a href="#">Register</a>
               </p>
             </Register>
             <SubmitBtn type="submit">login</SubmitBtn>

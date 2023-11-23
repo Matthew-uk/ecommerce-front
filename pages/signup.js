@@ -134,44 +134,42 @@ const ForgotPassword = styled.div`
 
 const SignupPage = () => {
   return (
-    <div>
-      <Hero>
-        <HeroLeft>
-          <h2>ReMoooo!!!</h2>
-        </HeroLeft>
-        <HeroRight className="right">
-          <Form id="form" className="form">
-            <FormTitle className="title">
-              <h2>Sign in</h2>
-              <p>login to access your dashboard</p>
-            </FormTitle>
-            <InputCard className="input-card">
-              <label>Email address</label>
-              <input type="email" placeholder="Email/Phone Number" />
-            </InputCard>
-            <InputCard className="input-card">
-              <label>Password</label>
-              <input type="password" placeholder="Password" />
-            </InputCard>
-            <InputCard className="input-card">
-              <label>Referal Code</label>
-              <input type="text" placeholder="Referal Code" />
-            </InputCard>
-            <Register className="register">
-              <p>
-                Don't have an account? <a href="#">Register</a>
-              </p>
-            </Register>
-            <SubmitBtn type="submit">login</SubmitBtn>
-            <ForgotPassword className="forgot-password">
-              <p>
-                Forgot Password? <a href="#">Click here</a>
-              </p>
-            </ForgotPassword>
-          </Form>
-        </HeroRight>
-      </Hero>
-    </div>
+    <Hero>
+      <HeroLeft>
+        <h2>ReMoooo!!!</h2>
+      </HeroLeft>
+      <HeroRight className="right">
+        <Form id="form" className="form">
+          <FormTitle className="title">
+            <h2>Sign in</h2>
+            <p>login to access your dashboard</p>
+          </FormTitle>
+          <InputCard className="input-card">
+            <label>Email address</label>
+            <input type="email" placeholder="Email/Phone Number" />
+          </InputCard>
+          <InputCard className="input-card">
+            <label>Password</label>
+            <input type="password" placeholder="Password" />
+          </InputCard>
+          <InputCard className="input-card">
+            <label>Referal Code</label>
+            <input type="text" placeholder="Referal Code" />
+          </InputCard>
+          <Register className="register">
+            <p>
+              Dont have an account? <a href="#">Register</a>
+            </p>
+          </Register>
+          <SubmitBtn type="submit">login</SubmitBtn>
+          <ForgotPassword className="forgot-password">
+            <p>
+              Forgot Password? <a href="#">Click here</a>
+            </p>
+          </ForgotPassword>
+        </Form>
+      </HeroRight>
+    </Hero>
   );
 };
 
