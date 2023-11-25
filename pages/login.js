@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
 
@@ -23,7 +24,8 @@ const HeroRight = styled.div`
   min-height: 100vh;
   @media screen and (max-width: 917px) {
     min-height: 80vh;
-    border-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     margin-top: -3em;
     background: white;
   }
@@ -101,7 +103,7 @@ const InputCard = styled.div`
 
 const Register = styled.div`
   width: 90%;
-  font-family: cursive;
+  font-family: fantasy;
   padding: 0.5em 0;
 `;
 
@@ -110,7 +112,6 @@ const SubmitBtn = styled.button`
   font-family: monospace;
   background: transparent;
   border: 1.5px solid rgb(237, 42, 42);
-  margin-top: 0.79em;
   padding: 0.7em 0;
   font-size: 1.2em;
   cursor: pointer;
@@ -128,8 +129,7 @@ const ForgotPassword = styled.div`
   width: 90%;
   text-align: center;
   padding-block: 0.7em;
-  font-family: cursive;
-  margin-top: 2em;
+  font-family: fantasy;
 `;
 
 const LoginPage = () => {
@@ -147,7 +147,11 @@ const LoginPage = () => {
             </FormTitle>
             <InputCard className="input-card">
               <label>Email address</label>
-              <input type="email" placeholder="Email/Phone Number" />
+              <input
+                style={{ fontFamily: "revert-layer", letterSpacing: "1.5px" }}
+                type="email"
+                placeholder="Email/Phone Number"
+              />
             </InputCard>
             <InputCard className="input-card">
               <label>Password</label>
@@ -155,13 +159,13 @@ const LoginPage = () => {
             </InputCard>
             <Register className="register">
               <p>
-                Dont have an account? <a href="#">Register</a>
+                Dont have an account? <Link href="/signup">Register</Link>
               </p>
             </Register>
             <SubmitBtn type="submit">login</SubmitBtn>
             <ForgotPassword className="forgot-password">
               <p>
-                Forgot Password? <a href="#">Click here</a>
+                Forgot Password? <Link href="/forgot-password">Click here</Link>
               </p>
             </ForgotPassword>
           </Form>

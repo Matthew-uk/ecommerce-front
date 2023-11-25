@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
 
@@ -101,7 +102,7 @@ const InputCard = styled.div`
 
 const Register = styled.div`
   width: 90%;
-  font-family: cursive;
+  font-family: fantasy;
   padding: 0.5em 0;
 `;
 
@@ -110,7 +111,6 @@ const SubmitBtn = styled.button`
   font-family: monospace;
   background: transparent;
   border: 1.5px solid rgb(237, 42, 42);
-  margin-top: 0.79em;
   padding: 0.7em 0;
   font-size: 1.2em;
   cursor: pointer;
@@ -128,8 +128,7 @@ const ForgotPassword = styled.div`
   width: 90%;
   text-align: center;
   padding-block: 0.7em;
-  font-family: cursive;
-  margin-top: 2em;
+  font-family: fantasy;
 `;
 
 const SignupPage = () => {
@@ -158,13 +157,21 @@ const SignupPage = () => {
           </InputCard>
           <Register className="register">
             <p>
-              Dont have an account?<a href="#"> Register</a>
+              Already have an account?{" "}
+              <Link
+                href="/login"
+                style={{
+                  letterSpacing: "1.5px",
+                }}
+              >
+                Sign in
+              </Link>
             </p>
           </Register>
           <SubmitBtn type="submit">login</SubmitBtn>
           <ForgotPassword className="forgot-password">
             <p>
-              Forgot Password? <a href="#">Click here</a>
+              Forgot Password? <Link href="/forgot-password">Click here</Link>
             </p>
           </ForgotPassword>
         </Form>
