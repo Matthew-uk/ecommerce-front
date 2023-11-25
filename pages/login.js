@@ -103,7 +103,6 @@ const InputCard = styled.div`
 
 const Register = styled.div`
   width: 90%;
-  font-family: fantasy;
   padding: 0.5em 0;
 `;
 
@@ -129,7 +128,6 @@ const ForgotPassword = styled.div`
   width: 90%;
   text-align: center;
   padding-block: 0.7em;
-  font-family: fantasy;
 `;
 
 const LoginPage = () => {
