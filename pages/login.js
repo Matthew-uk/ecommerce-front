@@ -1,6 +1,9 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import Cookies from "js-cookies";
 
 const Hero = styled.div`
   display: flex;
@@ -131,6 +134,47 @@ const ForgotPassword = styled.div`
 `;
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const loginDetails = {
+      email,
+      password,
+    };
+    console.log({ email, password });
+    try {
+      const res = await axios.post(
+        "https://node-backend-v1.onrender.com/api/users/login",
+        loginDetails
+      );
+      console.log(res.data.user.token);
+      Cookies.setItem("token", res.data.user.token);
+      router.push("/account");
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+    // try {
+    //   loginDetails = {
+    //     email,
+    //     password,
+    //   };
+    // } catch (error) {
+    //   console.log("An error occured!!!");
+    // } finally {
+    //   setLoading(false);
+    // }
+    // return loginDetails;
+  };
+
   return (
     <div>
       <Hero>
@@ -138,12 +182,15 @@ const LoginPage = () => {
           <h2>ReMoooo!!!</h2>
         </HeroLeft>
         <HeroRight className="right">
-          <Form id="form" className="form">
+          <Form id="form" className="form" onSubmit={handleLogin}>
             <FormTitle className="title">
               <h2>Sign in</h2>
               <p>login to access your dashboard</p>
             </FormTitle>
-            <InputCard className="input-card">
+            <InputCard
+              className="input-card"
+              onChange={(e) => setEmail(e.target.value)}
+            >
               <label>Email address</label>
               <input
                 style={{ fontFamily: "revert-layer", letterSpacing: "1.5px" }}
@@ -151,7 +198,10 @@ const LoginPage = () => {
                 placeholder="Email/Phone Number"
               />
             </InputCard>
-            <InputCard className="input-card">
+            <InputCard
+              className="input-card"
+              onChange={(e) => setPassword(e.target.value)}
+            >
               <label>Password</label>
               <input type="password" placeholder="Password" />
             </InputCard>
@@ -160,7 +210,9 @@ const LoginPage = () => {
                 Dont have an account? <Link href="/signup">Register</Link>
               </p>
             </Register>
-            <SubmitBtn type="submit">login</SubmitBtn>
+            <SubmitBtn type="submit" onClick={handleLogin}>
+              login
+            </SubmitBtn>
             <ForgotPassword className="forgot-password">
               <p>
                 Forgot Password? <Link href="/forgot-password">Click here</Link>

@@ -1,6 +1,9 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import Cookies from "js-cookies";
+import { useRouter } from "next/navigation";
 
 const Hero = styled.div`
   display: flex;
@@ -23,7 +26,7 @@ const HeroRight = styled.div`
   width: 100%;
   min-height: 100vh;
   @media screen and (max-width: 917px) {
-    min-height: 80vh;
+    min-height: 90vh;
     border-radius: 50px;
     margin-top: -3em;
     background: white;
@@ -38,7 +41,7 @@ const HeroLeft = styled.div`
   min-height: 100vh;
   background: #078ea6;
   @media screen and (max-width: 917px) {
-    min-height: 30vh !important;
+    min-height: 20vh !important;
     z-index: -1;
   }
 `;
@@ -65,9 +68,9 @@ const FormTitle = styled.div`
   h2::after {
     content: "";
     display: block;
-    width: 40px;
-    height: 3px;
-    margin: 0.1em auto;
+    width: 45px;
+    height: 4px;
+    margin: 0.2em auto;
     background: rgb(237, 42, 42);
     border-radius: 3px;
     /* border: 1px solid red; */
@@ -130,28 +133,75 @@ const ForgotPassword = styled.div`
 `;
 
 const SignupPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [referralCode, setReferralCode] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const data = {
+        email,
+        password,
+        referralCode,
+        fullName,
+      };
+      console.log(data);
+      const res = await axios.post(
+        "https://node-backend-v1.onrender.com/api/users/register",
+        data
+      );
+      console.log(res.data);
+      Cookies.setItem("token", res.data.user.token);
+      router.push("/account");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Hero>
       <HeroLeft>
         <h2>ReMoooo!!!</h2>
       </HeroLeft>
       <HeroRight className="right">
-        <Form id="form" className="form">
+        <Form id="form" className="form" onSubmit={handleRegister}>
           <FormTitle className="title">
-            <h2>Sign in</h2>
+            <h2>Sign up</h2>
             <p>login to access your dashboard</p>
           </FormTitle>
           <InputCard className="input-card">
             <label>Email address</label>
-            <input type="email" placeholder="Email/Phone Number" />
+            <input
+              type="email"
+              placeholder="Email/Phone Number"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </InputCard>
+          <InputCard className="input-card">
+            <label>Full Name</label>
+            <input
+              type="text"
+              placeholder="Full Name"
+              onChange={(e) => setFullName(e.target.value)}
+            />
           </InputCard>
           <InputCard className="input-card">
             <label>Password</label>
-            <input type="password" placeholder="Password" />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </InputCard>
           <InputCard className="input-card">
             <label>Referal Code</label>
-            <input type="text" placeholder="Referal Code" />
+            <input
+              type="text"
+              placeholder="Referal Code"
+              onChange={(e) => setReferralCode(e.target.value)}
+            />
           </InputCard>
           <Register className="register">
             <p>
