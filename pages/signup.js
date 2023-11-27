@@ -216,7 +216,7 @@ const SignupPage = () => {
               </Link>
             </p>
           </Register>
-          <SubmitBtn type="submit">login</SubmitBtn>
+          <SubmitBtn type="submit">Sign Up</SubmitBtn>
           <ForgotPassword className="forgot-password">
             <p>
               Forgot Password? <Link href="/forgot-password">Click here</Link>
