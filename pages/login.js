@@ -125,6 +125,9 @@ const SubmitBtn = styled.button`
     /* border: 1px solid aliceblue; */
     background: rgb(237, 42, 42);
   }
+  :disabled {
+    opacity: 0.5;
+  }
 `;
 
 const ForgotPassword = styled.div`
@@ -142,13 +145,14 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     const loginDetails = {
       email,
       password,
     };
     console.log({ email, password });
     try {
+      setLoading(true);
+      console.log(loading);
       const res = await axios.post(
         "https://node-backend-v1.onrender.com/api/users/login",
         loginDetails
@@ -179,7 +183,7 @@ const LoginPage = () => {
     <div>
       <Hero>
         <HeroLeft>
-          <h2>ReMoooo!!!</h2>
+          <h2>Omas!!!</h2>
         </HeroLeft>
         <HeroRight className="right">
           <Form id="form" className="form" onSubmit={handleLogin}>
@@ -210,8 +214,8 @@ const LoginPage = () => {
                 Dont have an account? <Link href="/signup">Register</Link>
               </p>
             </Register>
-            <SubmitBtn type="submit" onClick={handleLogin}>
-              login
+            <SubmitBtn disabled={loading} type="submit" onClick={handleLogin}>
+              {loading ? "Loading..." : "login"}
             </SubmitBtn>
             <ForgotPassword className="forgot-password">
               <p>

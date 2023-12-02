@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Cookies from "js-cookies";
 import { useRouter } from "next/navigation";
@@ -124,6 +124,9 @@ const SubmitBtn = styled.button`
     /* border: 1px solid aliceblue; */
     background: rgb(237, 42, 42);
   }
+  :disabled {
+    opacity: 0.5;
+  }
 `;
 
 const ForgotPassword = styled.div`
@@ -136,16 +139,25 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const [referralCode, setReferralCode] = useState("");
+  const [referer, setReferer] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const referralCodeFromUrl = window.location.search.split("?ref=")[1];
+    if (referralCodeFromUrl) {
+      setReferer(referralCodeFromUrl);
+    }
+  }, []);
+
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const data = {
         email,
         password,
-        referralCode,
+        referer,
         fullName,
       };
       console.log(data);
@@ -158,12 +170,14 @@ const SignupPage = () => {
       router.push("/account");
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <Hero>
       <HeroLeft>
-        <h2>ReMoooo!!!</h2>
+        <h2>Omas!!!</h2>
       </HeroLeft>
       <HeroRight className="right">
         <Form id="form" className="form" onSubmit={handleRegister}>
@@ -200,7 +214,8 @@ const SignupPage = () => {
             <input
               type="text"
               placeholder="Referal Code"
-              onChange={(e) => setReferralCode(e.target.value)}
+              onChange={(e) => setReferer(e.target.value)}
+              value={referer}
             />
           </InputCard>
           <Register className="register">
@@ -216,7 +231,9 @@ const SignupPage = () => {
               </Link>
             </p>
           </Register>
-          <SubmitBtn type="submit">Sign Up</SubmitBtn>
+          <SubmitBtn type="submit" disabled={loading}>
+            {loading ? "Loading..." : "Sign Up"}
+          </SubmitBtn>
           <ForgotPassword className="forgot-password">
             <p>
               Forgot Password? <Link href="/forgot-password">Click here</Link>

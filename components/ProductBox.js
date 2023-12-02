@@ -17,7 +17,7 @@ const WhiteBox = styled(Link)`
   justify-content: center;
   border-radius: 10px;
   img {
-    max-width: 100%;
+    width: 100%;
     height: 120px;
   }
 `;
