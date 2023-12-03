@@ -63,7 +63,7 @@ const AccountSection = () => {
 
   const copyReferralCode = () => {
     // Replace 'your-referral-code' with the actual code you want to copy
-    const referralCodeUrl = `https://ecommerce-admin-dashboard-v1.vercel.app/login?ref=${referralCode}`;
+    const referralCodeUrl = `https://omars.vercel.app/signup?ref=${referralCode}`;
 
     // Create a temporary textarea element
     const tempTextArea = document.createElement("textarea");
@@ -117,12 +117,36 @@ const AccountSection = () => {
         </div>
         <AccountAction>
           <AccountActionItem>
-            <p>Deposit</p>
-            <FiDownload size={25} />
+            <Link
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "aliceblue",
+              }}
+              href={"/deposit"}
+            >
+              <p>Deposit</p>
+              <FiDownload size={25} />
+            </Link>
           </AccountActionItem>
           <AccountActionItem>
-            <p>Withdraw</p>
-            <FiUpload size={25} />
+            <Link
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "aliceblue",
+              }}
+              href={"/withdraw"}
+            >
+              <p>Withdraw</p>
+              <FiUpload size={25} />
+            </Link>
           </AccountActionItem>
           <AccountActionItem onClick={copyReferralCode}>
             <p>Refer and Earn</p>

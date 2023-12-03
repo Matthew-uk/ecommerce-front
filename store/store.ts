@@ -7,6 +7,8 @@ interface User {
   setBalance: (data: number) => void;
   referralCode: string;
   setReferralCode: (data: string) => void;
+  deposit: number;
+  setDeposit: (data: number) => void;
 }
 
 export const useUser = create<User>()((set) => ({
@@ -16,4 +18,6 @@ export const useUser = create<User>()((set) => ({
   setBalance: (data: number) => set({ balance: data }),
   referralCode: "",
   setReferralCode: (data: string) => set({ referralCode: data }),
+  deposit: 0,
+  setDeposit: (data: number) => set({ deposit: data }),
 }));

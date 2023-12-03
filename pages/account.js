@@ -1,6 +1,6 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookies";
 import axios from "axios";
 import { useUser } from "@/store/store";
@@ -9,8 +9,10 @@ import AccountSection from "@/components/Account";
 
 const AccountPage = () => {
   const { name, setName, setBalance, setReferralCode } = useUser();
+  const [loading, setLoading] = useState(false);
   const handleGetUser = async () => {
     try {
+      setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
         `https://node-backend-v1.onrender.com/api/users/`,
@@ -28,6 +30,8 @@ const AccountPage = () => {
       console.log({ token, loggedInUser });
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,9 +42,7 @@ const AccountPage = () => {
   return (
     <div>
       <Header />
-      <Center>
-        <AccountSection />
-      </Center>
+      <Center>{loading ? "Loading user data..." : <AccountSection />}</Center>
     </div>
   );
 };
