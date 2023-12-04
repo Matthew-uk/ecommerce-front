@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 import AccountSection from "@/components/Account";
 
 const AccountPage = () => {
-  const { name, setName, setBalance, setReferralCode, setUserId } = useUser();
+  const { name, setName, setBalance, setReferralCode, setUserId, userId } =
+    useUser();
   const [loading, setLoading] = useState(false);
   const handleGetUser = async () => {
     try {
@@ -39,6 +40,7 @@ const AccountPage = () => {
   useEffect(() => {
     handleGetUser();
     console.log(`Name: ${name}`);
+    console.log(`User id: ${userId}`);
   }, []);
   return (
     <div>
