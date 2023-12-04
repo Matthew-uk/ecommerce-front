@@ -152,7 +152,7 @@ const PaymentPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [image, setImage] = useState("");
   const [imgLoading, setImgLoading] = useState(false);
-  const { deposit } = useUser();
+  const { deposit, userId } = useUser();
   // const handleFileChange = (event) => {
   //   const file = event.target.files[0];
   //   setSelectedFile(file);
@@ -201,7 +201,7 @@ const PaymentPage = () => {
       const res = await axios.post(
         "https://node-backend-v1.onrender.com/api/deposit/",
         {
-          userId: "876467gf8gg7f837743",
+          userId,
           deposit,
           proofOfPayment: image,
         }

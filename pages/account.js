@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import AccountSection from "@/components/Account";
 
 const AccountPage = () => {
-  const { name, setName, setBalance, setReferralCode } = useUser();
+  const { name, setName, setBalance, setReferralCode, setUserId } = useUser();
   const [loading, setLoading] = useState(false);
   const handleGetUser = async () => {
     try {
@@ -26,6 +26,7 @@ const AccountPage = () => {
       setName(loggedInUser);
       setBalance(res.data.balance);
       setReferralCode(res.data.referralCode);
+      setUserId(res.data.id);
       console.log(res.data);
       console.log({ token, loggedInUser });
     } catch (error) {
