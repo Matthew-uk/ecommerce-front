@@ -119,8 +119,8 @@ const DepositPage = () => {
       <Header />
       <Center>
         <DepositContainer>
-          <h3>Enter/Select the amount you would like to deposit.</h3>
-          <h3>Choose Amount</h3>
+          <p>Enter/Select the amount you would like to deposit.</p>
+          <p>Choose Amount:</p>
           <PriceContainer>
             <Price onClick={() => handleChangeAmount(2000)}>₦2,000</Price>
             <Price onClick={() => handleChangeAmount(5000)}>₦5,000</Price>

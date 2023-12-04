@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { FiDownload, FiUpload, FiShare2 } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa6";
 import Link from "next/link";
+import Investment from "./investment";
+import ReferToEarn from "./refer";
 // import NewProducts from "./NewProducts";
 // import { mongooseConnect } from "@/lib/mongoose";
 // import { Product } from "@/models/Product";
@@ -60,10 +62,10 @@ const AccountActionItem = styled.div`
 const AccountSection = () => {
   const { name, balance, referralCode } = useUser();
   const [isCopied, setIsCopied] = useState(false);
+  const referralCodeUrl = `https://omars.vercel.app/signup?ref=${referralCode}`;
 
   const copyReferralCode = () => {
     // Replace 'your-referral-code' with the actual code you want to copy
-    const referralCodeUrl = `https://omars.vercel.app/signup?ref=${referralCode}`;
 
     // Create a temporary textarea element
     const tempTextArea = document.createElement("textarea");
@@ -170,6 +172,12 @@ const AccountSection = () => {
         <p style={{ fontSize: "1.2em" }}>Our Products</p>
         <FaArrowRight />
       </Link>
+      <ReferToEarn
+        link={referralCodeUrl}
+        copyReferralCode={copyReferralCode}
+        isCopied={isCopied}
+      />
+      <Investment />
       {/* <NewProducts products={featuredProduct} /> */}
     </AccountContainer>
   );
