@@ -1,8 +1,10 @@
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import { useUser } from "@/store/store";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Cookies from "js-cookies";
+import axios from "axios";
 
 const WithdrawContainer = styled.div``;
 
@@ -60,70 +62,111 @@ const Withdraw = () => {
     }
   `;
 
+  const { name, setName, setBalance, setReferralCode, setUserId, userId } =
+    useUser();
+  const [loading, setLoading] = useState(false);
+  const handleGetUser = async () => {
+    try {
+      setLoading(true);
+      const token = Cookies.getItem("token");
+      const res = await axios.get(
+        `https://node-backend-v1.onrender.com/api/users/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const loggedInUser = res.data.fullName;
+      setName(loggedInUser);
+      setBalance(res.data.balance);
+      setReferralCode(res.data.referralCode);
+      setUserId(res.data.id);
+      console.log(res.data);
+      console.log({ token, loggedInUser });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    handleGetUser();
+    console.log(`Name: ${name}`);
+    console.log(`User id: ${userId}`);
+  }, []);
+
   return (
     <div style={{ background: "#222", minHeight: "100vh", color: "#fff" }}>
-      <Header />
-      <Center>
-        <WithdrawContainer>
-          <p>Withdraw your funds</p>
-          <Balance>
-            <p style={{ color: "#7FFBB0", letterSpacing: "2px" }}>
-              ₦{balance.toLocaleString()}
-            </p>
-          </Balance>
-          <WithdrawInputContainer>
-            <p>Enter amount you would like to withdraw</p>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: "0.5em",
-              }}
-            >
-              ₦
-              <WithdrawInput
-                type="number"
-                placeholder="Enter amount to withdraw"
-                onChange={handleWithdrawChange}
-                value={amount}
-              ></WithdrawInput>
-              <p onClick={() => setAmount(balance)}>All</p>
-            </div>
-          </WithdrawInputContainer>
-          <WithdrawConditions>
-            <WithdrawCondition>
-              <img
-                src={"https://livent.ltd/static/livent/img/ic_vip1.png"}
-                alt="24H"
-              />
-              <p>Auto</p>
-            </WithdrawCondition>
-            <WithdrawCondition>
-              <img
-                src={"https://livent.ltd/static/livent/img/ic_vip2.png"}
-                alt="24H"
-              />
-              <p>24H Arrival Time</p>
-            </WithdrawCondition>
-            <WithdrawCondition>
-              <img
-                src={"https://livent.ltd/static/livent/img/ic_vip3.png"}
-                alt="24H"
-              />
-              <p>₦8000</p>
-            </WithdrawCondition>
-            {/* <WithdrawCondition>
+      {loading ? (
+        <p>Hold on, Loading User details</p>
+      ) : (
+        <>
+          <Header />
+          <Center>
+            <WithdrawContainer>
+              <p>Withdraw your funds</p>
+              <Balance>
+                <p style={{ color: "#7FFBB0", letterSpacing: "2px" }}>
+                  ₦{balance.toLocaleString()}
+                </p>
+              </Balance>
+              <WithdrawInputContainer>
+                <p>Enter amount you would like to withdraw</p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: "0.5em",
+                  }}
+                >
+                  ₦
+                  <WithdrawInput
+                    type="number"
+                    placeholder="Enter amount to withdraw"
+                    onChange={handleWithdrawChange}
+                    value={amount}
+                  ></WithdrawInput>
+                  <p onClick={() => setAmount(balance)}>All</p>
+                </div>
+              </WithdrawInputContainer>
+              <WithdrawConditions>
+                <WithdrawCondition>
+                  <img
+                    src={"https://livent.ltd/static/livent/img/ic_vip1.png"}
+                    alt="24H"
+                  />
+                  <p>Auto</p>
+                </WithdrawCondition>
+                <WithdrawCondition>
+                  <img
+                    src={"https://livent.ltd/static/livent/img/ic_vip2.png"}
+                    alt="24H"
+                  />
+                  <p>24H Arrival Time</p>
+                </WithdrawCondition>
+                <WithdrawCondition>
+                  <img
+                    src={"https://livent.ltd/static/livent/img/ic_vip3.png"}
+                    alt="24H"
+                  />
+                  <p>₦8000</p>
+                </WithdrawCondition>
+                {/* <WithdrawCondition>
               <img
                 src={"https://livent.ltd/static/livent/img/ic_vip2.png"}
                 alt="24H"
               />
               <p>24H</p>
             </WithdrawCondition> */}
-          </WithdrawConditions>
-        </WithdrawContainer>
-      </Center>
+              </WithdrawConditions>
+            </WithdrawContainer>
+          </Center>
+        </>
+      )}
     </div>
   );
 };
