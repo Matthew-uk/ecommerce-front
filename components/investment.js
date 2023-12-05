@@ -141,7 +141,7 @@ const Investment = () => {
         );
         console.log(res.data);
         toast.success(
-          `You have just successfully invested ${amount}, you are expected to earn ${
+          `Congratulations, You have just successfully invested ${amount}, you are expected to earn ${
             amount / 5
           } Daily`,
           {
@@ -167,6 +167,17 @@ const Investment = () => {
   return (
     <InvestmentContainer style={{ width: "100%" }}>
       <InvestmentHeader>
+        {loading &&
+          toast.info("Hold on while we process your investment...", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          })}
         <p
           style={{
             fontSize: "1.1em",

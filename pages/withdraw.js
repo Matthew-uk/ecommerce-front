@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Cookies from "js-cookies";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const WithdrawContainer = styled.div``;
 
@@ -116,8 +117,19 @@ const Withdraw = () => {
   }, []);
 
   const handleWithdrawal = () => {
-    setWithdrawal(amount);
-    router.push("/account-details");
+    if (amount > balance) {
+      toast.error(
+        "You don't have enough balance to withdraw the amount you entered. Try funding your account",
+        {
+          position: "top-center",
+          autoClose: 5000,
+        }
+      );
+      router.push("/deposit");
+    } else {
+      setWithdrawal(amount);
+      router.push("/account-details");
+    }
   };
 
   return (
