@@ -114,7 +114,9 @@ const AccountSection = () => {
           </p>
           <div>
             <span style={{ color: "gray" }}>Total Balance</span>
-            <p style={{ fontSize: "1.5em" }}>₦{balance.toLocaleString()}</p>
+            <p style={{ fontSize: "1.5em", color: "#07bc0c" }}>
+              ₦{balance.toLocaleString()}
+            </p>
           </div>
         </div>
         <AccountAction>
@@ -150,14 +152,9 @@ const AccountSection = () => {
               <FiUpload size={25} />
             </Link>
           </AccountActionItem>
-          <AccountActionItem onClick={copyReferralCode}>
-            <p>Refer and Earn</p>
-            <FiShare2 size={25} />
-            {isCopied && <span> Copied!</span>}
-          </AccountActionItem>
         </AccountAction>
       </AccountNav>
-      <Link
+      {/* <Link
         href={"/products"}
         style={{
           display: "flex",
@@ -171,12 +168,12 @@ const AccountSection = () => {
       >
         <p style={{ fontSize: "1.2em" }}>Our Products</p>
         <FaArrowRight />
-      </Link>
-      <ReferToEarn
+      </Link> */}
+      {/* <ReferToEarn
         link={referralCodeUrl}
         copyReferralCode={copyReferralCode}
         isCopied={isCopied}
-      />
+      /> */}
       <Investment />
       {/* <NewProducts products={featuredProduct} /> */}
     </AccountContainer>

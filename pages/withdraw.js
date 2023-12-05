@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cookies from "js-cookies";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const WithdrawContainer = styled.div``;
 
@@ -62,9 +63,26 @@ const Withdraw = () => {
     }
   `;
 
-  const { name, setName, setBalance, setReferralCode, setUserId, userId } =
-    useUser();
+  const WithdrawBtn = styled.button`
+    background: #0078e8;
+    width: 100%;
+    padding-block: 1em;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  `;
+
+  const {
+    name,
+    setName,
+    setBalance,
+    setReferralCode,
+    setUserId,
+    userId,
+    setWithdrawal,
+  } = useUser();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const handleGetUser = async () => {
     try {
       setLoading(true);
@@ -96,6 +114,11 @@ const Withdraw = () => {
     console.log(`Name: ${name}`);
     console.log(`User id: ${userId}`);
   }, []);
+
+  const handleWithdrawal = () => {
+    setWithdrawal(amount);
+    router.push("/account-details");
+  };
 
   return (
     <div style={{ background: "#222", minHeight: "100vh", color: "#fff" }}>
@@ -132,6 +155,12 @@ const Withdraw = () => {
                   ></WithdrawInput>
                   <p onClick={() => setAmount(balance)}>All</p>
                 </div>
+                <WithdrawBtn
+                  onClick={handleWithdrawal}
+                  style={{ background: "#0078E8", width: "100%" }}
+                >
+                  Withdraw
+                </WithdrawBtn>
               </WithdrawInputContainer>
               <WithdrawConditions>
                 <WithdrawCondition>

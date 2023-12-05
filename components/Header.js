@@ -10,6 +10,7 @@ import Cookies from "js-cookies";
 
 const StyledHeader = styled.header`
   background-color: #222;
+  z-index: 1;
 `;
 const Logo = styled(Link)`
   color: #fff;
@@ -102,11 +103,11 @@ export default function Header() {
         <Wrapper>
           <Logo href={"/"}>OMAS</Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-            <NavLink href={"/"}>Home</NavLink>
-            <NavLink href={"/products"}>All products</NavLink>
+            <NavLink href={"/account"}>Home</NavLink>
+            {/* <NavLink href={"/products"}>All products</NavLink>
             <NavLink href={"/categories"}>Categories</NavLink>
             <NavLink href={"/account"}>Account</NavLink>
-            <NavLink href={"/cart"}>Cart ({cartProducts.length})</NavLink>
+            <NavLink href={"/cart"}>Cart ({cartProducts.length})</NavLink> */}
             <NavLink href={"/account"} style={{ color: "#fff" }}>
               {name}
             </NavLink>

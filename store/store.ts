@@ -11,6 +11,14 @@ interface User {
   setDeposit: (data: number) => void;
   userId: string;
   setUserId: (data: string) => void;
+  withdrawal: number;
+  setWithdrawal: (data: number) => void;
+  bankName: string;
+  setBankName: (data: string) => void;
+  accountName: string;
+  setAccountName: (data: string) => void;
+  accountNumber: number;
+  setAccountNumber: (data: number) => void;
 }
 
 export const useUser = create<User>()((set) => ({
@@ -24,4 +32,12 @@ export const useUser = create<User>()((set) => ({
   setDeposit: (data: number) => set({ deposit: data }),
   userId: "",
   setUserId: (data: string) => set({ userId: data }),
+  withdrawal: 0,
+  setWithdrawal: (data: number) => set({ withdrawal: data }),
+  bankName: "",
+  setBankName: (data: string) => set({ bankName: data }),
+  accountName: "",
+  setAccountName: (data: string) => set({ accountName: data }),
+  accountNumber: 0,
+  setAccountNumber: (data: number) => set({ accountNumber: data }),
 }));
