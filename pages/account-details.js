@@ -881,13 +881,16 @@ const DarkWithdraw = () => {
       console.log("Bank Name:", bankIfsc);
       console.log("Withdrawal Amount:", withdrawal);
       console.log("User Id:", userId);
-      const res = await axios.post("http://localhost:3004/api/withdraw", {
-        userId,
-        withdraw: withdrawal,
-        bankName,
-        accountName: bankIfsc,
-        accountNumber: bankAccount,
-      });
+      const res = await axios.post(
+        "https://node-backend-v1.onrender.com/api/withdraw",
+        {
+          userId,
+          withdraw: withdrawal,
+          bankName,
+          accountName: bankIfsc,
+          accountNumber: bankAccount,
+        }
+      );
       console.log(res.data);
     }
   };
