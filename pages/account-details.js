@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useUser } from "@/store/store";
 import Header from "@/components/Header";
+import { toast } from "react-toastify";
 
 const DarkBankWrap = styled.div`
   background-color: #1c1c1c;
@@ -77,13 +78,17 @@ const DarkLi = styled.li`
   }
 `;
 
-const DarkBtn = styled.div`
+const DarkBtn = styled.button`
   background-color: #007bff;
   color: #fff;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
+  :disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 `;
 
 const DarkWithdraw = () => {
@@ -562,6 +567,17 @@ const DarkWithdraw = () => {
       type: "nuban",
     },
     {
+      name: "Opay",
+      slug: "mint-mfb",
+      code: "50304",
+      longCode: "",
+      gateway: null,
+      active: true,
+      country: "Nigeria",
+      currency: "NGN",
+      type: "nuban",
+    },
+    {
       name: "Paga",
       slug: "paga",
       code: "100002",
@@ -860,8 +876,9 @@ const DarkWithdraw = () => {
     },
   ]);
 
+  const [withdrawLoading, setWithdrawLoading] = useState(false);
+
   const handleSubmit = async () => {
-    // Validate and handle form submission
     if (!bankName) {
       setNameError("Please type your name");
     } else {
@@ -881,17 +898,35 @@ const DarkWithdraw = () => {
       console.log("Bank Name:", bankIfsc);
       console.log("Withdrawal Amount:", withdrawal);
       console.log("User Id:", userId);
-      const res = await axios.post(
-        "https://node-backend-v1.onrender.com/api/withdraw",
-        {
-          userId,
-          withdraw: withdrawal,
-          bankName,
-          accountName: bankIfsc,
-          accountNumber: bankAccount,
-        }
-      );
-      console.log(res.data);
+      try {
+        setWithdrawLoading(true);
+        const res = await axios.post(
+          "https://node-backend-v1.onrender.com/api/withdraw",
+          {
+            userId,
+            withdraw: withdrawal,
+            bankName,
+            accountName: bankIfsc,
+            accountNumber: bankAccount,
+          }
+        );
+        console.log(res.data);
+        toast.success(
+          "Your Money is on it's way. You will your receive payment within 24 Hours. Thanks for trusting OMAS."
+        );
+        router.push("/account");
+      } catch (error) {
+        console.log(error);
+        toast.error(
+          "An error try again. If this persists try re-logging in...",
+          {
+            position: "top-center",
+            autoClose: 5000,
+          }
+        );
+      } finally {
+        setWithdrawLoading(false);
+      }
     }
   };
 
@@ -969,7 +1004,9 @@ const DarkWithdraw = () => {
                   </select>
                 </DarkLi>
               </ul>
-              <DarkBtn onClick={handleSubmit}>Submit</DarkBtn>
+              <DarkBtn disabled={withdrawLoading} onClick={handleSubmit}>
+                {withdrawLoading ? "Loading..." : "Submit"}
+              </DarkBtn>
             </DarkListWrap>
           </DarkBankWrap>
         </>
