@@ -105,7 +105,7 @@ const Order = () => {
         <OrderContainer>
           <p>Withdrawal(s): </p>
           <div>
-            {newloading || (loading && <p>Loading...</p>)}
+            {newloading && <p>Loading...</p>}
             {withdrawals.map((withdrawal) => (
               <SingleOrder>
                 {!withdrawal.pending && withdrawal.approved ? (
@@ -124,7 +124,7 @@ const Order = () => {
           <div>
             {newloading && <p>Loading...</p>}
             {deposits.map((deposit) => (
-              <SingleOrder>
+              <SingleOrder key={deposit}>
                 {!deposit.pending && deposit.approved ? (
                   <p style={{ color: "green" }}>Approved</p>
                 ) : !deposit.approved && deposit.pending ? (
