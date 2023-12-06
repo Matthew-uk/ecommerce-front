@@ -1,3 +1,13 @@
+// pages/order.js
+import React from "react";
+
+const Order = () => {
+  // Your component logic here
+  return <div>{/* Your JSX content here */}</div>;
+};
+
+export default Order;
+
 // import axios from "axios";
 // import { useRouter } from "next/navigation";
 // import React, { useEffect, useState } from "react";
