@@ -46,7 +46,7 @@ const InvestmentItem = styled.li`
   padding: 20px;
   text-align: center;
   width: 250px;
-  z-index: -1;
+  z-index: 0;
 `;
 
 const InvestmentPic = styled.div`
@@ -228,7 +228,7 @@ const Investment = () => {
             data-money="2000"
             data-id="100"
             data-type_id="1"
-            onClick={() => handleRouting(2000)}
+            onClick={() => console.log("Hello")}
           >
             Invest Now
           </InvestmentButton>

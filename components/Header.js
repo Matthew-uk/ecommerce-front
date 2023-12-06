@@ -13,13 +13,13 @@ import { FiSend } from "react-icons/fi";
 
 const StyledHeader = styled.header`
   background-color: #0d1119;
-  z-index: 1;
+  z-index: 5;
 `;
 const Logo = styled(Link)`
   color: #fff;
   text-decoration: none;
   position: relative;
-  z-index: 3;
+  z-index: 5;
   margin-top: 0.5em;
 `;
 const Wrapper = styled.div`
@@ -44,6 +44,7 @@ const StyledNav = styled.nav`
   right: 0;
   padding: 70px 20px 20px;
   background-color: #0d1119;
+  z-index: 3;
   @media screen and (min-width: 800px) {
     display: flex;
     position: static;
