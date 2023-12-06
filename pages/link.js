@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Cookies from "js-cookies";
 import { toast } from "react-toastify";
+import BottomNav from "@/components/BottomMenu";
 
 const LinkContainer = styled.div`
   height: 100%;
@@ -147,15 +148,16 @@ const Link = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         width: "100%",
+        marginTop: "-1.4em",
       }}
     >
-      <Header />
+      <BottomNav />
       <Center>
         {loading ? (
           <p style={{ color: "#fff" }}>Loading user Data...</p>
         ) : (
           <LinkContainer>
-            <h4 style={{ textAlign: "center" }}>
+            <h4 style={{ textAlign: "center", paddingTop: "2em" }}>
               Get Rewarded for inviting your friends.
             </h4>
             <InviteProfileContainer>

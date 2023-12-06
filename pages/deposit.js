@@ -1,3 +1,4 @@
+import BottomNav from "@/components/BottomMenu";
 import Center from "@/components/Center";
 import Header from "@/components/Header";
 import { useUser } from "@/store/store";
@@ -116,7 +117,7 @@ const DepositPage = () => {
 
   return (
     <div style={{ background: "#0D1119", color: "#fff", height: "100vh" }}>
-      <Header />
+      <BottomNav />
       <Center>
         <DepositContainer>
           <p>Enter/Select the amount you would like to deposit.</p>

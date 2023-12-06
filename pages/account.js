@@ -6,6 +6,23 @@ import axios from "axios";
 import { useUser } from "@/store/store";
 import { useRouter } from "next/navigation";
 import AccountSection from "@/components/Account";
+import BottomNav from "@/components/BottomMenu";
+import styled from "styled-components";
+
+const ImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  /* background: rgb(13, 17, 25); */
+  /* padding: 20px; */
+  padding-top: 2em;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0;
+  img {
+    width: 90% !important;
+    /* border-radius: 10px; */
+  }
+`;
 
 const AccountPage = () => {
   const { name, setName, setBalance, setReferralCode, setUserId, userId } =
@@ -45,9 +62,41 @@ const AccountPage = () => {
     console.log(`User id: ${userId}`);
   }, []);
   return (
-    <div>
-      <Header />
-      <Center>{loading ? "Loading user data..." : <AccountSection />}</Center>
+    <div
+      style={{
+        background: "rgb(13, 17, 25)",
+        marginTop: "-1em",
+      }}
+    >
+      {/* <Header /> */}
+
+      <Center>
+        {loading ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "1em",
+              alignContent: "center",
+              color: "white",
+              minHeight: "100vh",
+            }}
+          >
+            <p>Loading user data...</p>
+          </div>
+        ) : (
+          <>
+            <ImgContainer>
+              <img
+                style={{ width: "100%" }}
+                src="https://livent.ltd/static/livent/img/banner2.png"
+              />
+            </ImgContainer>
+            <AccountSection />
+          </>
+        )}
+      </Center>
+      <BottomNav />
     </div>
   );
 };

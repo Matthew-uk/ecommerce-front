@@ -18,7 +18,7 @@ const AccountContainer = styled.div`
   justify-content: left;
   width: 100%;
   min-height: 80vh;
-  margin-top: 1em;
+  margin-top: -1em;
 `;
 
 const AccountNav = styled.div`
@@ -113,7 +113,7 @@ const AccountSection = () => {
             Hello, <span style={{ fontWeight: "bolder" }}>{name}</span>
           </p>
           <div>
-            <span style={{ color: "gray" }}>Total Balance</span>
+            <span style={{ color: "white" }}>Total Balance</span>
             <p style={{ fontSize: "1.5em", color: "#07bc0c" }}>
               ₦{balance.toLocaleString()}
             </p>

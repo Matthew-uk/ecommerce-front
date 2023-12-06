@@ -24,7 +24,7 @@ const InvestmentHeader = styled.div`
     content: "";
     height: 2px;
     width: 30%;
-    background: #000;
+    background: #fff;
     margin: -0.5em 0;
   }
 `;
@@ -184,6 +184,7 @@ const Investment = () => {
             fontSize: "1.1em",
             textAlign: "center",
             width: "100%",
+            color: "white",
           }}
         >
           Checkout our Investment Plans

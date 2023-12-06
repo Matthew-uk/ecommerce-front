@@ -6,8 +6,11 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cookies from "js-cookies";
+import BottomNav from "@/components/BottomMenu";
 
-const TeamContainer = styled.div``;
+const TeamContainer = styled.div`
+  padding-top: 1em;
+`;
 const TeamNav = styled.div`
   background: aliceblue;
   color: #222;
@@ -121,12 +124,13 @@ const Team = () => {
         minHeight: "100vh",
         paddingBottom: "1em",
         color: "#fff",
+        marginTop: "-1.3em",
       }}
     >
-      <Header />
+      <BottomNav />
       <Center>
         {loading ? (
-          <p>Loading user Data...</p>
+          <p style={{ paddingTop: "3em" }}>Loading user Data...</p>
         ) : (
           <TeamContainer>
             <h3>Team</h3>

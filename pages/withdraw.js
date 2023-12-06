@@ -7,6 +7,7 @@ import Cookies from "js-cookies";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import BottomNav from "@/components/BottomMenu";
 
 const WithdrawContainer = styled.div``;
 
@@ -140,7 +141,8 @@ const Withdraw = () => {
         <p>Hold on, Loading User details</p>
       ) : (
         <>
-          <Header />
+          {/* <Header /> */}
+          <BottomNav />
           <Center>
             <WithdrawContainer>
               <p>Withdraw your funds</p>

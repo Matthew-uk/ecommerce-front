@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useUser } from "@/store/store";
 import Header from "@/components/Header";
 import { toast } from "react-toastify";
+import BottomNav from "@/components/BottomMenu";
 
 const DarkBankWrap = styled.div`
   background-color: #1c1c1c;
@@ -951,7 +952,8 @@ const DarkWithdraw = () => {
             <span>bank account</span>
             <span></span>
           </DarkNavbar> */}
-          <Header />
+          {/* <Header /> */}
+          <BottomNav />
           <DarkBankWrap>
             <DarkTipsBox>
               <p className="tips" style={{ color: "#fff" }}>
