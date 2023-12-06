@@ -5,6 +5,7 @@ import { CiHome } from "react-icons/ci";
 import { RiTeamLine } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
+import { IoReorderThreeSharp } from "react-icons/io5";
 import Link from "next/link";
 
 const BottomNavContainer = styled.div`
@@ -43,13 +44,17 @@ const BottomNav = () => {
         <CiHome size={20} />
         Home
       </NavItem>
-      <NavItem href={"/team"}>
-        <RiTeamLine size={20} />
-        Team
+      <NavItem href={"/order"}>
+        <IoReorderThreeSharp size={20} />
+        Order
       </NavItem>
       <NavItem href={"/link"}>
         <FiSend size={20} />
         Link
+      </NavItem>
+      <NavItem href={"/team"}>
+        <RiTeamLine size={20} />
+        Team
       </NavItem>
       <NavItem href={"https://t.me/omasinc"}>
         <BiSupport size={20} />

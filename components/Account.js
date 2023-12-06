@@ -109,7 +109,7 @@ const AccountSection = () => {
     <AccountContainer>
       <AccountNav>
         <div style={{ paddingInline: "1em" }}>
-          <p style={{ color: "#000" }}>
+          <p style={{ color: "#fff", paddingTop: "1em" }}>
             Hello, <span style={{ fontWeight: "bolder" }}>{name}</span>
           </p>
           <div>

@@ -9,7 +9,9 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import BottomNav from "@/components/BottomMenu";
 
-const WithdrawContainer = styled.div``;
+const WithdrawContainer = styled.div`
+  border: 1px solid #222;
+`;
 
 const Balance = styled.div`
   display: flex;
