@@ -51,7 +51,7 @@ const BottomNav = () => {
         <FiSend size={20} />
         Link
       </NavItem>
-      <NavItem href={"/account"}>
+      <NavItem href={"https://t.me/omasinc"}>
         <BiSupport size={20} />
         Contact Us
       </NavItem>
