@@ -125,12 +125,12 @@ const DepositPage = () => {
             <Price onClick={() => handleChangeAmount(2000)}>₦2,000</Price>
             <Price onClick={() => handleChangeAmount(5000)}>₦5,000</Price>
             <Price onClick={() => handleChangeAmount(10000)}>₦10,000</Price>
-            <Price onClick={() => handleChangeAmount(15000)}>₦15,000</Price>
             <Price onClick={() => handleChangeAmount(20000)}>₦20,000</Price>
-            <Price onClick={() => handleChangeAmount(30000)}>₦30,000</Price>
-            <Price onClick={() => handleChangeAmount(45000)}>₦45,000</Price>
+            <Price onClick={() => handleChangeAmount(25000)}>₦25,000</Price>
             <Price onClick={() => handleChangeAmount(50000)}>₦50,000</Price>
             <Price onClick={() => handleChangeAmount(100000)}>₦100,000</Price>
+            <Price onClick={() => handleChangeAmount(200000)}>₦200,000</Price>
+            <Price onClick={() => handleChangeAmount(400000)}>₦400,000</Price>
           </PriceContainer>
           <AmountInput
             type="number"

@@ -10,6 +10,7 @@ import Cookies from "js-cookies";
 import { CiHome } from "react-icons/ci";
 import { RiTeamLine } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
+import { BiSupport } from "react-icons/bi";
 
 const StyledHeader = styled.header`
   background-color: #0d1119;
@@ -119,6 +120,10 @@ export default function Header() {
             <NavLink href={"/link"}>
               <FiSend style={{ marginRight: "0.5em" }} />
               Link
+            </NavLink>
+            <NavLink href={"https://t.me/omasinc"}>
+              <BiSupport style={{ marginRight: "0.5em" }} />
+              Contact Us
             </NavLink>
             {/* <NavLink href={"/products"}>All products</NavLink>
             <NavLink href={"/categories"}>Categories</NavLink>
