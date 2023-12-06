@@ -11,6 +11,7 @@ const AccountPage = () => {
   const { name, setName, setBalance, setReferralCode, setUserId, userId } =
     useUser();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const handleGetUser = async () => {
     try {
       setLoading(true);
@@ -32,6 +33,7 @@ const AccountPage = () => {
       console.log({ token, loggedInUser });
     } catch (error) {
       console.log(error);
+      router.push("/login");
     } finally {
       setLoading(false);
     }

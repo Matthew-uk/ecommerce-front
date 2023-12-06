@@ -7,9 +7,12 @@ import BarsIcon from "@/components/icons/Bars";
 import { useUser } from "@/store/store";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookies";
+import { CiHome } from "react-icons/ci";
+import { RiTeamLine } from "react-icons/ri";
+import { FiSend } from "react-icons/fi";
 
 const StyledHeader = styled.header`
-  background-color: #222;
+  background-color: #0d1119;
   z-index: 1;
 `;
 const Logo = styled(Link)`
@@ -40,7 +43,7 @@ const StyledNav = styled.nav`
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
-  background-color: #222;
+  background-color: #0d1119;
   @media screen and (min-width: 800px) {
     display: flex;
     position: static;
@@ -52,6 +55,7 @@ const NavLink = styled(Link)`
   color: #aaa;
   text-decoration: none;
   padding: 10px 0;
+  color: #fff;
   @media screen and (min-width: 800px) {
     padding: 0;
   }
@@ -103,14 +107,25 @@ export default function Header() {
         <Wrapper>
           <Logo href={"/"}>OMAS</Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-            <NavLink href={"/account"}>Home</NavLink>
+            <NavLink href={"/account"}>
+              <CiHome style={{ marginRight: "0.5em" }} />
+              Home
+            </NavLink>
+            <NavLink href={"/team"}>
+              <RiTeamLine style={{ marginRight: "0.5em" }} />
+              Team
+            </NavLink>
+            <NavLink href={"/link"}>
+              <FiSend style={{ marginRight: "0.5em" }} />
+              Link
+            </NavLink>
             {/* <NavLink href={"/products"}>All products</NavLink>
             <NavLink href={"/categories"}>Categories</NavLink>
             <NavLink href={"/account"}>Account</NavLink>
             <NavLink href={"/cart"}>Cart ({cartProducts.length})</NavLink> */}
-            <NavLink href={"/account"} style={{ color: "#fff" }}>
+            {/* <NavLink href={"/account"} style={{ color: "#fff" }}>
               {name}
-            </NavLink>
+            </NavLink> */}
             <LogoutBtn onClick={handleLogout}>Logout</LogoutBtn>
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>

@@ -115,7 +115,7 @@ const DepositPage = () => {
   };
 
   return (
-    <div style={{ background: "#222", color: "#fff", height: "100vh" }}>
+    <div style={{ background: "#0D1119", color: "#fff", height: "100vh" }}>
       <Header />
       <Center>
         <DepositContainer>

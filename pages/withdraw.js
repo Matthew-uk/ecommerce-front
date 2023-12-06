@@ -126,6 +126,8 @@ const Withdraw = () => {
         }
       );
       router.push("/deposit");
+    } else if (amount < 800) {
+      toast.warn("Minimum Withdrawal of ₦800");
     } else {
       setWithdrawal(amount);
       router.push("/account-details");
@@ -194,7 +196,7 @@ const Withdraw = () => {
                     src={"https://livent.ltd/static/livent/img/ic_vip3.png"}
                     alt="24H"
                   />
-                  <p>₦8000</p>
+                  <p>₦800</p>
                 </WithdrawCondition>
                 {/* <WithdrawCondition>
               <img

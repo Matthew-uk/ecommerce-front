@@ -46,6 +46,7 @@ const InvestmentItem = styled.li`
   padding: 20px;
   text-align: center;
   width: 250px;
+  z-index: -1;
 `;
 
 const InvestmentPic = styled.div`
