@@ -8,7 +8,7 @@ import Center from "@/components/Center";
 import styled from "styled-components";
 
 const OrderContainer = styled.div`
-  /* min */
+  display: block;
 `;
 
 const SingleOrder = styled.div`
@@ -19,17 +19,10 @@ const SingleOrder = styled.div`
 `;
 
 const Order = () => {
-  const {
-    name,
-    setName,
-    setBalance,
-    setReferralCode,
-    setUserId,
-    userId,
-    setWithdrawal,
-  } = useUser();
+  const { name, setName, setBalance, setReferralCode, setUserId, userId } =
+    useUser();
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
   const handleGetUser = async () => {
     try {
       setLoading(true);
@@ -112,7 +105,7 @@ const Order = () => {
         <OrderContainer>
           <p>Withdrawal(s): </p>
           <div>
-            {newloading && <p>Loading...</p>}
+            {newloading || (loading && <p>Loading...</p>)}
             {withdrawals.map((withdrawal) => (
               <SingleOrder>
                 {!withdrawal.pending && withdrawal.approved ? (
