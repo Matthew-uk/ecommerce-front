@@ -6,9 +6,10 @@ import BottomNav from "@/components/BottomMenu";
 import Center from "@/components/Center";
 import styled from "styled-components";
 
-const OrderContainer = styled.div`
-  display: block;
-`;
+// Remove unused styled component
+// const OrderContainer = styled.div`
+//   display: block;
+// `;
 
 const SingleOrder = styled.div`
   display: flex;
@@ -24,13 +25,14 @@ const Order = () => {
   const [loadingData, setLoadingData] = useState(false);
   const [withdrawals, setWithdrawals] = useState([]);
   const [deposits, setDeposits] = useState([]);
+  const [display, setDisplay] = useState("deposit");
 
   const handleGetUser = async () => {
     try {
       setLoadingUser(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/users/`,
+        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +47,8 @@ const Order = () => {
       console.log(res.data);
       console.log({ token, loggedInUser });
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching user:", error);
+      // Display a user-friendly error message
     } finally {
       setLoadingUser(false);
     }
@@ -60,7 +63,8 @@ const Order = () => {
       console.log(res.data);
       setWithdrawals(res.data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching withdrawals:", error);
+      // Display a user-friendly error message
     } finally {
       setLoadingData(false);
     }
@@ -70,17 +74,48 @@ const Order = () => {
     try {
       setLoadingData(true);
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/deposit/user?id=${userId}`
+        `https://cute-erin-seahorse-boot.cyclic.app/api/deposit/user?id=${userId}`
       );
       console.log(res.data);
       setDeposits(res.data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching deposits:", error);
+      // Display a user-friendly error message
     } finally {
       setLoadingData(false);
     }
   };
 
+  const renderOrders = (orders) => {
+    return (
+      <div>
+        {loadingData && <p>Loading...</p>}
+        {Array.isArray(orders) && orders.length > 0 ? (
+          orders.map((order, index) => (
+            <SingleOrder key={index}>
+              {(!order.pending && order.approved && (
+                <p style={{ color: "green" }}>Approved</p>
+              )) ||
+                (!order.approved && order.pending && (
+                  <p style={{ color: "yellow" }}>Pending</p>
+                )) || <p style={{ color: "#ff0000" }}>Failed</p>}
+              {order && (
+                <>
+                  {order.pending}
+                  {`₦${
+                    order.withdraw.toLocaleString() ||
+                    order.deposit.toLocaleString()
+                  }`}
+                </>
+              )}
+            </SingleOrder>
+          ))
+        ) : (
+          <p>No orders to display</p>
+        )}
+      </div>
+    );
+  };
   useEffect(() => {
     handleGetUser();
     console.log(`Name: ${name}`);
@@ -92,6 +127,20 @@ const Order = () => {
     getDeposits();
   }, [userId]);
 
+  const OrderHeader = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    p {
+      text-align: center;
+      border: 1px solid aliceblue;
+      width: 50%;
+      padding-block: 1em;
+    }
+  `;
+
   return (
     <div
       style={{
@@ -102,48 +151,31 @@ const Order = () => {
       }}
     >
       <Center>
-        <OrderContainer>
-          <p>Withdrawal(s): </p>
-          <div>
-            {loadingData && <p>Loading...</p>}
-            {withdrawals.map((withdrawal, index) => (
-              <SingleOrder key={index}>
-                {(!withdrawal.pending && withdrawal.approved && (
-                  <p style={{ color: "green" }}>Approved</p>
-                )) ||
-                  (!withdrawal.approved && withdrawal.pending && (
-                    <p style={{ color: "yellow" }}>Pending</p>
-                  )) || <p style={{ color: "#ff0000" }}>Failed</p>}
-                {withdrawal && (
-                  <>
-                    {withdrawal.pending}
-                    {`₦${withdrawal.withdraw.toLocaleString()}`}
-                  </>
-                )}
-              </SingleOrder>
-            ))}
-          </div>
-          <p>Deposit(s): </p>
-          <div>
-            {loadingData && <p>Loading...</p>}
-            {deposits.map((deposit, index) => (
-              <SingleOrder key={index}>
-                {(!deposit.pending && deposit.approved && (
-                  <p style={{ color: "green" }}>Approved</p>
-                )) ||
-                  (!deposit.approved && deposit.pending && (
-                    <p style={{ color: "yellow" }}>Pending</p>
-                  )) || <p style={{ color: "#ff0000" }}>Failed</p>}
-                {deposit && (
-                  <>
-                    {deposit.pending}
-                    {`₦${deposit.deposit.toLocaleString()}`}
-                  </>
-                )}
-              </SingleOrder>
-            ))}
-          </div>
-        </OrderContainer>
+        {/* Removed OrderContainer */}
+        <div>
+          <OrderHeader>
+            <p
+              style={{ color: display === "withdrawal" ? "red" : "inherit" }}
+              onClick={() => {
+                console.log("Withdrawal clicked");
+                setDisplay("withdrawal");
+              }}
+            >
+              Withdrawal
+            </p>
+            <p
+              style={{ color: display === "deposit" ? "red" : "inherit" }}
+              onClick={() => {
+                console.log("Deposit clicked");
+                setDisplay("deposit");
+              }}
+            >
+              Deposits
+            </p>
+          </OrderHeader>
+          {display === "withdrawal" && renderOrders(withdrawals)}
+          {display === "deposit" && renderOrders(deposits)}
+        </div>
       </Center>
       <BottomNav />
     </div>

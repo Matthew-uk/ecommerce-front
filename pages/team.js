@@ -69,7 +69,13 @@ const TeamMemberDetails = styled.div`
   display: flex;
   flex-direction: row;
   /* border: 1px solid red; */
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 1em;
+  > div {
+    /* width: 100/3%; */
+    width: 33.3%;
+  }
 `;
 
 const TeamMemberDetail = styled.div`
@@ -77,6 +83,8 @@ const TeamMemberDetail = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  /* border-right: 1px solid green; */
   /* border: 1px solid red; */
 `;
 
@@ -99,7 +107,7 @@ const Team = () => {
       setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/users/`,
+        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -161,203 +169,31 @@ const Team = () => {
               </TeamNavContainer>
             </TeamNav>
             <h3>Team Details</h3>
-            <TeamInfo>
-              <p>
-                My Team Info{" "}
-                <span
-                  style={{
-                    color: "#9BA2FF",
-                    fontSize: "1em",
-                    background: "#424045",
-                    padding: "0.5em",
-                    borderRadius: "10px",
-                    fontStyle: "italic",
-                  }}
-                >
-                  LV 1
-                </span>
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    number of people
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    bonus(₦)
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    all promotions(₦)
-                  </span>
-                </div>
-              </div>
-            </TeamInfo>
-            {/* Team Info 2 */}
-            <TeamInfo>
-              <p>
-                My Team Info{" "}
-                <span
-                  style={{
-                    color: "#48BFE5",
-                    fontSize: "1em",
-                    background: "#424045",
-                    padding: "0.5em",
-                    borderRadius: "10px",
-                    fontStyle: "italic",
-                  }}
-                >
-                  LV 2
-                </span>
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    number of people
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    bonus(₦)
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    all promotions(₦)
-                  </span>
-                </div>
-              </div>
-            </TeamInfo>
-            {/* Team Info 3 */}
-            <TeamInfo>
-              <p>
-                My Team Info{" "}
-                <span
-                  style={{
-                    color: "#FF9100",
-                    fontSize: "1em",
-                    background: "#424045",
-                    padding: "0.5em",
-                    borderRadius: "10px",
-                    fontStyle: "italic",
-                  }}
-                >
-                  LV 3
-                </span>
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    number of people
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    bonus(₦)
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <p>₦ 0</p>
-                  <span style={{ textAlign: "center", color: "#7B848F" }}>
-                    all promotions(₦)
-                  </span>
-                </div>
-              </div>
-            </TeamInfo>
+            <TeamMembers>
+              {/* {referrals &&
+                referrals.map((referral) => <p>{referral.fullName}</p>)} */}
+              {referrals &&
+                referrals.map((referral) => (
+                  <TeamMember>
+                    <TeamMemberDetails>
+                      <TeamMemberDetail>
+                        <p>Name</p>
+                        <p>{referral.fullName}</p>
+                      </TeamMemberDetail>
+                      <TeamMemberDetail>
+                        <p>Balance</p>
+                        <p style={{ color: "rgb(7,188,12)" }}>
+                          ₦{referral.balance.toLocaleString()}
+                        </p>
+                      </TeamMemberDetail>
+                      <TeamMemberDetail>
+                        <p>Investment</p>
+                        <p>₦{referral.subscriptionPlan.toLocaleString()}</p>
+                      </TeamMemberDetail>
+                    </TeamMemberDetails>
+                  </TeamMember>
+                ))}
+            </TeamMembers>
           </TeamContainer>
         )}
       </Center>
@@ -366,3 +202,199 @@ const Team = () => {
 };
 
 export default Team;
+
+// <TeamInfo>
+//   <p>
+//     My Team Info{" "}
+//     <span
+//       style={{
+//         color: "#9BA2FF",
+//         fontSize: "1em",
+//         background: "#424045",
+//         padding: "0.5em",
+//         borderRadius: "10px",
+//         fontStyle: "italic",
+//       }}
+//     >
+//       LV 1
+//     </span>
+//   </p>
+//   <div
+//     style={{
+//       display: "flex",
+//       flexDirection: "row",
+//       justifyContent: "space-between",
+//       alignItems: "center",
+//     }}
+//   >
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         number of people
+//       </span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>bonus(₦)</span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         all promotions(₦)
+//       </span>
+//     </div>
+//   </div>
+// </TeamInfo>;
+// {
+//   /* Team Info 2 */
+// }
+// <TeamInfo>
+//   <p>
+//     My Team Info{" "}
+//     <span
+//       style={{
+//         color: "#48BFE5",
+//         fontSize: "1em",
+//         background: "#424045",
+//         padding: "0.5em",
+//         borderRadius: "10px",
+//         fontStyle: "italic",
+//       }}
+//     >
+//       LV 2
+//     </span>
+//   </p>
+//   <div
+//     style={{
+//       display: "flex",
+//       flexDirection: "row",
+//       justifyContent: "space-between",
+//       alignItems: "center",
+//     }}
+//   >
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         number of people
+//       </span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>bonus(₦)</span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         all promotions(₦)
+//       </span>
+//     </div>
+//   </div>
+// </TeamInfo>;
+// {
+//   /* Team Info 3 */
+// }
+// <TeamInfo>
+//   <p>
+//     My Team Info{" "}
+//     <span
+//       style={{
+//         color: "#FF9100",
+//         fontSize: "1em",
+//         background: "#424045",
+//         padding: "0.5em",
+//         borderRadius: "10px",
+//         fontStyle: "italic",
+//       }}
+//     >
+//       LV 3
+//     </span>
+//   </p>
+//   <div
+//     style={{
+//       display: "flex",
+//       flexDirection: "row",
+//       justifyContent: "space-between",
+//       alignItems: "center",
+//     }}
+//   >
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         number of people
+//       </span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>bonus(₦)</span>
+//     </div>
+//     <div
+//       style={{
+//         display: "flex",
+//         flexDirection: "column",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <p>₦ 0</p>
+//       <span style={{ textAlign: "center", color: "#7B848F" }}>
+//         all promotions(₦)
+//       </span>
+//     </div>
+//   </div>
+// </TeamInfo>;

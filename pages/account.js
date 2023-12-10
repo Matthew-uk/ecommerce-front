@@ -34,7 +34,7 @@ const AccountPage = () => {
       setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/users/`,
+        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

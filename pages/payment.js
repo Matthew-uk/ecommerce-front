@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/store/store";
 import Image from "next/image";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Wrapper = styled.div`
   font-size: 16px;
@@ -153,6 +154,7 @@ const PaymentPage = () => {
   const [image, setImage] = useState("");
   const [imgLoading, setImgLoading] = useState(false);
   const { deposit, userId } = useUser();
+  const [loading, setLoading] = useState(false);
   // const handleFileChange = (event) => {
   //   const file = event.target.files[0];
   //   setSelectedFile(file);
@@ -198,6 +200,7 @@ const PaymentPage = () => {
 
   const handleDeposit = async () => {
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://node-backend-v1.onrender.com/api/deposit/",
         {
@@ -208,8 +211,11 @@ const PaymentPage = () => {
       );
       console.log(res.data);
       router.push("/account");
+      toast.success("Withdrawal in process... Expect payment within 24hours");
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
     console.log({ deposit, image });
   };
@@ -337,7 +343,9 @@ const PaymentPage = () => {
           Please do not transfer multiple times
         </BtnTip>
         <Bottom>
-          <Btn onClick={handleDeposit}>I have made the payment</Btn>
+          <Btn disabled={loading} onClick={handleDeposit}>
+            {loading ? "Handling Deposit..." : "I have made the payment..."}
+          </Btn>
         </Bottom>
       </div>
     </Wrapper>

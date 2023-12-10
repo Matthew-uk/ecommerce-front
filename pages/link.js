@@ -69,7 +69,7 @@ const Link = () => {
       setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/users/`,
+        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -154,7 +154,9 @@ const Link = () => {
       <BottomNav />
       <Center>
         {loading ? (
-          <p style={{ color: "#fff" }}>Loading user Data...</p>
+          <p style={{ color: "#fff", paddingTop: "3em" }}>
+            Loading user Data...
+          </p>
         ) : (
           <LinkContainer>
             <h4 style={{ textAlign: "center", paddingTop: "2em" }}>
@@ -175,6 +177,19 @@ const Link = () => {
               </InviteProfile>
               <InviteBtn onClick={copyReferralCode}>Copy</InviteBtn>
             </InviteProfileContainer>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                gap: "-1em",
+              }}
+            >
+              <p>Level 1 - 18%</p>
+              <p>Level 2 - 3%</p>
+              <p>Level 3 - 1%</p>
+            </div>
           </LinkContainer>
         )}
       </Center>

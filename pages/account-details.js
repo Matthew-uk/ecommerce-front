@@ -105,7 +105,7 @@ const DarkWithdraw = () => {
       setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://node-backend-v1.onrender.com/api/users/`,
+        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -902,7 +902,7 @@ const DarkWithdraw = () => {
       try {
         setWithdrawLoading(true);
         const res = await axios.post(
-          "https://node-backend-v1.onrender.com/api/withdraw",
+          "https://cute-erin-seahorse-boot.cyclic.app/api/withdraw",
           {
             userId,
             withdraw: withdrawal,

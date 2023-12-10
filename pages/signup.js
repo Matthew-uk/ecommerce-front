@@ -162,7 +162,7 @@ const SignupPage = () => {
       };
       console.log(data);
       const res = await axios.post(
-        "https://node-backend-v1.onrender.com/api/users/register",
+        "https://cute-erin-seahorse-boot.cyclic.app/api/users/register",
         data
       );
       console.log(res.data);

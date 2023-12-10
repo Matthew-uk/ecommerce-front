@@ -134,7 +134,7 @@ const Investment = () => {
       try {
         setLoading(true);
         const res = await axios.patch(
-          "https://node-backend-v1.onrender.com/api/users/subscription",
+          "https://cute-erin-seahorse-boot.cyclic.app/api/users/subscription",
           {
             userId,
             subscriptionPlan: amount,

@@ -6,6 +6,7 @@ import { RiTeamLine } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
 import { IoReorderThreeSharp } from "react-icons/io5";
+import { IoShareSocialOutline } from "react-icons/io5";
 import Link from "next/link";
 
 const BottomNavContainer = styled.div`
@@ -49,8 +50,8 @@ const BottomNav = () => {
         Order
       </NavItem>
       <NavItem href={"/link"}>
-        <FiSend size={20} />
-        Link
+        <IoShareSocialOutline size={20} />
+        Invite
       </NavItem>
       <NavItem href={"/team"}>
         <RiTeamLine size={20} />
