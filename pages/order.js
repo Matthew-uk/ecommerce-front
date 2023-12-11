@@ -99,12 +99,17 @@ const Order = () => {
                 (!order.approved && order.pending && (
                   <p style={{ color: "yellow" }}>Pending</p>
                 )) || <p style={{ color: "#ff0000" }}>Failed</p>}
+
               {order && (
                 <>
                   {order.pending}
                   {`₦${
-                    order.withdraw.toLocaleString() ||
-                    order.deposit.toLocaleString()
+                    (order.withdraw !== undefined
+                      ? order.withdraw.toLocaleString()
+                      : order.withdraw) ||
+                    (order.deposit !== undefined
+                      ? order.deposit.toLocaleString()
+                      : order.deposit)
                   }`}
                 </>
               )}
