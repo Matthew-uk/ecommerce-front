@@ -132,9 +132,6 @@ const Team = () => {
 
   useEffect(() => {
     handleGetUser();
-    console.log(`Name: ${name}`);
-    console.log(`User id: ${userId}`);
-    console.log(referrals);
   }, []);
 
   return (
@@ -174,7 +171,7 @@ const Team = () => {
                 referrals.map((referral) => <p>{referral.fullName}</p>)} */}
               {referrals &&
                 referrals.map((referral) => (
-                  <TeamMember>
+                  <TeamMember key={referral._id}>
                     <TeamMemberDetails>
                       <TeamMemberDetail>
                         <p>Name</p>
