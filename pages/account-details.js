@@ -964,7 +964,7 @@ const DarkWithdraw = () => {
             <DarkListWrap>
               <ul>
                 <DarkLi>
-                  <span>Username</span>
+                  <span>Account Name</span>
                   <input
                     type="text"
                     id="bank_name"

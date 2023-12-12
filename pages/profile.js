@@ -4,8 +4,11 @@ import React from "react";
 import { FiDownload, FiUpload } from "react-icons/fi";
 import { FaHistory } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
+import { LuLogOut } from "react-icons/lu";
 import styled from "styled-components";
 import Link from "next/link";
+import Cookies from "js-cookies";
+import { useRouter } from "next/navigation";
 
 const ProfileContainer = styled.div`
   min-height: 100vh;
@@ -49,7 +52,33 @@ const ProfileContent = styled(Link)`
   color: #000;
 `;
 
+const ProfileContentButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+  gap: 0.5em;
+  text-decoration: none;
+  color: #000;
+  background: #0078e8;
+  margin-top: 1em;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.3em;
+`;
+
 const Profile = () => {
+  const router = useRouter();
+
+  const handleLogOut = () => {
+    Cookies.setItem("token", "");
+    router.push("/login");
+  };
+
   return (
     <ProfileContainer>
       <Center>
@@ -74,6 +103,10 @@ const Profile = () => {
             My Team
           </ProfileContent>
         </ProfileContents>
+        <ProfileContentButton onClick={handleLogOut}>
+          <LuLogOut size={25} />
+          Log Out
+        </ProfileContentButton>
       </Center>
       <BottomNav />
     </ProfileContainer>
