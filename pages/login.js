@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Cookies from "js-cookies";
+import { toast } from "react-toastify";
 
 const Hero = styled.div`
   display: flex;
@@ -161,8 +162,14 @@ const LoginPage = () => {
       Cookies.setItem("token", res.data.user.token);
       router.push("/account");
       console.log(res);
+      toast.success("Login Successful");
     } catch (error) {
       console.log(error);
+      if (error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error(error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -183,7 +190,7 @@ const LoginPage = () => {
     <div>
       <Hero>
         <HeroLeft>
-          <h2>Omas!!!</h2>
+          <h2>Twinkas!!!</h2>
         </HeroLeft>
         <HeroRight className="right">
           <Form id="form" className="form" onSubmit={handleLogin}>

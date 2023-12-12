@@ -13,6 +13,7 @@ const TeamContainer = styled.div`
   flex-direction: column;
   gap: 1em;
   padding-top: 1em;
+  margin-bottom: 5em;
 `;
 const TeamNav = styled.div`
   background: aliceblue;
@@ -184,8 +185,8 @@ const Team = () => {
                         </p>
                       </TeamMemberDetail>
                       <TeamMemberDetail>
-                        <p>Investment</p>
-                        <p>₦{referral.subscriptionPlan.toLocaleString()}</p>
+                        <p>Referrals</p>
+                        <p>{referral.referrals.length}</p>
                       </TeamMemberDetail>
                     </TeamMemberDetails>
                   </TeamMember>

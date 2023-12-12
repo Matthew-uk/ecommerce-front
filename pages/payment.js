@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-  padding: 20px;
+  padding: 0px;
   border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
@@ -225,6 +225,9 @@ const PaymentPage = () => {
 
     clipboard.on("success", (e) => {
       console.log(e);
+      toast.success("Copied", {
+        autoClose: 1000,
+      });
     });
 
     clipboard.on("error", (e) => {
@@ -239,7 +242,9 @@ const PaymentPage = () => {
   return (
     <Wrapper>
       <Header>
-        <h2 style={{ color: "#ff69b4" }}>OMAS PAYMENT GATEWAY</h2>
+        <h2 style={{ color: "#ff69b4", textAlign: "center" }}>
+          TWINKAS PAYMENT GATEWAY
+        </h2>
       </Header>
       <MethodMain>
         <Tabs>
@@ -261,7 +266,7 @@ const PaymentPage = () => {
               data-clipboard-target="#accountNumber"
             >
               <span id="accountNumber" style={{ fontSize: "1rem" }}>
-                5365059512
+                5455120201
               </span>
               <IconContext.Provider
                 value={{ size: "1.5rem", color: "#4a90e2" }}
@@ -295,7 +300,7 @@ const PaymentPage = () => {
               data-clipboard-target="#accountName"
             >
               <span id="accountName" style={{ fontSize: "1rem" }}>
-                WISDOM JOSEPH
+                PRINCESS ISAAC
               </span>
               <IconContext.Provider
                 value={{ size: "1.5rem", color: "#4a90e2" }}

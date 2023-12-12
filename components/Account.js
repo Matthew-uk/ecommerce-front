@@ -111,7 +111,10 @@ const AccountSection = () => {
         <div style={{ paddingInline: "1em" }}>
           <p style={{ color: "#fff", paddingTop: "1em" }}>
             Hello, <span style={{ fontWeight: "bolder" }}>{name}</span>
+            <br />
+            Welcome to <span style={{ fontWeight: "bolder" }}>TWINKAS</span>
           </p>
+          {/* <p style={{ color: "#fff", paddingTop: "1em" }}></p> */}
           <div>
             <span style={{ color: "white" }}>Total Balance</span>
             <p style={{ fontSize: "1.5em", color: "#07bc0c" }}>

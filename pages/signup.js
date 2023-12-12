@@ -177,7 +177,7 @@ const SignupPage = () => {
   return (
     <Hero>
       <HeroLeft>
-        <h2>Omas!!!</h2>
+        <h2>Twinkas!!!</h2>
       </HeroLeft>
       <HeroRight className="right">
         <Form id="form" className="form" onSubmit={handleRegister}>

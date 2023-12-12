@@ -10,6 +10,7 @@ const InvestmentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 4em;
   /* background: #222; */
 `;
 
@@ -201,16 +202,16 @@ const Investment = () => {
             <InvestmentBottom>
               <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
               <InvestmentSubtitle>
-                Product Price: <span>₦2,000</span>
+                Product Price: <span>₦4,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦400</span>
+                Daily Income<span>₦1,000</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
           <InvestmentParagraph>
             <span>Product Price</span>
-            <span>₦2,000</span>
+            <span>₦4,000</span>
           </InvestmentParagraph>
           <InvestmentHeading>
             <span>Daily Income (₦)</span>
@@ -218,10 +219,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>400</b>
+              ₦<b>1,000</b>
             </span>
             <span>
-              ₦<b>11,600</b>
+              ₦<b>8,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -229,11 +230,11 @@ const Investment = () => {
             data-money="2000"
             data-id="100"
             data-type_id="1"
-            onClick={() => console.log("Hello")}
+            onClick={() => handleRouting(4000)}
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
         {/* Repeat this block for each investment item */}
         <InvestmentItem>
@@ -245,16 +246,16 @@ const Investment = () => {
             <InvestmentBottom>
               <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
               <InvestmentSubtitle>
-                Product Price: <span>₦5,000</span>
+                Product Price: <span>₦8,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦1,000</span>
+                Daily Income<span>₦2,000</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
           <InvestmentParagraph>
             <span>Product Price</span>
-            <span>₦5,000</span>
+            <span>₦8,000</span>
           </InvestmentParagraph>
           <InvestmentHeading>
             <span>Daily Income (₦)</span>
@@ -262,10 +263,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>1000</b>
+              ₦<b>2,000</b>
             </span>
             <span>
-              ₦<b>29,000</b>
+              ₦<b>16,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -273,11 +274,11 @@ const Investment = () => {
             data-money="2000"
             data-id="100"
             data-type_id="1"
-            onClick={() => handleRouting(5000)}
+            onClick={() => handleRouting(8000)}
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
         {/* card 3 */}
         <InvestmentItem>
@@ -289,16 +290,16 @@ const Investment = () => {
             <InvestmentBottom>
               <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
               <InvestmentSubtitle>
-                Product Price: <span>₦10,000</span>
+                Product Price: <span>₦15,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦2,000</span>
+                Daily Income<span>₦3,750</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
           <InvestmentParagraph>
             <span>Product Price</span>
-            <span>₦10,000</span>
+            <span>₦15,000</span>
           </InvestmentParagraph>
           <InvestmentHeading>
             <span>Daily Income (₦)</span>
@@ -306,10 +307,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>2,000</b>
+              ₦<b>3,750</b>
             </span>
             <span>
-              ₦<b>58,000</b>
+              ₦<b>30,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -317,11 +318,11 @@ const Investment = () => {
             data-money="2000"
             data-id="100"
             data-type_id="1"
-            onClick={() => handleRouting(10000)}
+            onClick={() => handleRouting(15000)}
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
         {/* Card 4 */}
         <InvestmentItem>
@@ -333,16 +334,16 @@ const Investment = () => {
             <InvestmentBottom>
               <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
               <InvestmentSubtitle>
-                Product Price: <span>₦20,000</span>
+                Product Price: <span>₦30,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦4000</span>
+                Daily Income<span>₦7,500</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
           <InvestmentParagraph>
             <span>Product Price</span>
-            <span>₦20,000</span>
+            <span>₦30,000</span>
           </InvestmentParagraph>
           <InvestmentHeading>
             <span>Daily Income (₦)</span>
@@ -350,10 +351,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>4000</b>
+              ₦<b>7,500</b>
             </span>
             <span>
-              ₦<b>116,000</b>
+              ₦<b>60,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -361,57 +362,13 @@ const Investment = () => {
             data-money="2000"
             data-id="100"
             data-type_id="1"
-            onClick={() => handleRouting(20000)}
+            onClick={() => handleRouting(30000)}
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
         {/* 5 */}
-        <InvestmentItem>
-          <InvestmentPic>
-            <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
-              alt=""
-            />
-            <InvestmentBottom>
-              <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
-              <InvestmentSubtitle>
-                Product Price: <span>₦25,000</span>
-              </InvestmentSubtitle>
-              <InvestmentSubtitle>
-                Daily Income<span>₦5,200</span>
-              </InvestmentSubtitle>
-            </InvestmentBottom>
-          </InvestmentPic>
-          <InvestmentParagraph>
-            <span>Product Price</span>
-            <span>₦25,000</span>
-          </InvestmentParagraph>
-          <InvestmentHeading>
-            <span>Daily Income (₦)</span>
-            <span>Total Income(₦)</span>
-          </InvestmentHeading>
-          <InvestmentHeading6>
-            <span>
-              ₦<b>5,200</b>
-            </span>
-            <span>
-              ₦<b>150,800</b>
-            </span>
-          </InvestmentHeading6>
-          <InvestmentButton
-            data-dai="ALUMINIUM-ION-1"
-            data-money="2000"
-            data-id="100"
-            data-type_id="1"
-            onClick={() => handleRouting(25000)}
-          >
-            Invest Now
-          </InvestmentButton>
-          <p>Validity: 29 days</p>
-        </InvestmentItem>
-        {/* 7 */}
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
@@ -424,7 +381,7 @@ const Investment = () => {
                 Product Price: <span>₦50,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦10,000</span>
+                Daily Income<span>₦12,500</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
@@ -438,10 +395,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>10,000</b>
+              ₦<b>12,500</b>
             </span>
             <span>
-              ₦<b>290,000</b>
+              ₦<b>100,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -453,9 +410,9 @@ const Investment = () => {
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
-        {/* 8 */}
+        {/* 7 */}
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
@@ -468,7 +425,7 @@ const Investment = () => {
                 Product Price: <span>₦100,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦20,000</span>
+                Daily Income<span>₦25,000</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
@@ -482,10 +439,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>20,000</b>
+              ₦<b>25,000</b>
             </span>
             <span>
-              ₦<b>580,000</b>
+              ₦<b>200,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -497,9 +454,9 @@ const Investment = () => {
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
-        {/* 9 */}
+        {/* 8 */}
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
@@ -512,7 +469,7 @@ const Investment = () => {
                 Product Price: <span>₦200,000</span>
               </InvestmentSubtitle>
               <InvestmentSubtitle>
-                Daily Income<span>₦40,000</span>
+                Daily Income<span>₦50,000</span>
               </InvestmentSubtitle>
             </InvestmentBottom>
           </InvestmentPic>
@@ -526,10 +483,10 @@ const Investment = () => {
           </InvestmentHeading>
           <InvestmentHeading6>
             <span>
-              ₦<b>40,000</b>
+              ₦<b>50,000</b>
             </span>
             <span>
-              ₦<b>1,160,000</b>
+              ₦<b>400,000</b>
             </span>
           </InvestmentHeading6>
           <InvestmentButton
@@ -541,53 +498,54 @@ const Investment = () => {
           >
             Invest Now
           </InvestmentButton>
-          <p>Validity: 29 days</p>
+          <p>Validity: 8 Days</p>
+        </InvestmentItem>
+        {/* 9 */}
+        <InvestmentItem>
+          <InvestmentPic>
+            <InvestmentImage
+              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              alt=""
+            />
+            <InvestmentBottom>
+              <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
+              <InvestmentSubtitle>
+                Product Price: <span>₦400,000</span>
+              </InvestmentSubtitle>
+              <InvestmentSubtitle>
+                Daily Income<span>₦100,000</span>
+              </InvestmentSubtitle>
+            </InvestmentBottom>
+          </InvestmentPic>
+          <InvestmentParagraph>
+            <span>Product Price</span>
+            <span>₦400,000</span>
+          </InvestmentParagraph>
+          <InvestmentHeading>
+            <span>Daily Income (₦)</span>
+            <span>Total Income(₦)</span>
+          </InvestmentHeading>
+          <InvestmentHeading6>
+            <span>
+              ₦<b>100,000</b>
+            </span>
+            <span>
+              ₦<b>800,000</b>
+            </span>
+          </InvestmentHeading6>
+          <InvestmentButton
+            data-dai="ALUMINIUM-ION-1"
+            data-money="2000"
+            data-id="100"
+            data-type_id="1"
+            onClick={() => handleRouting(400000)}
+          >
+            Invest Now
+          </InvestmentButton>
+          <p>Validity: 8 Days</p>
         </InvestmentItem>
       </InvestmentList>
       {/* 10 */}
-      <InvestmentItem>
-        <InvestmentPic>
-          <InvestmentImage
-            src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
-            alt=""
-          />
-          <InvestmentBottom>
-            <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
-            <InvestmentSubtitle>
-              Product Price: <span>₦400,000</span>
-            </InvestmentSubtitle>
-            <InvestmentSubtitle>
-              Daily Income<span>₦80,000</span>
-            </InvestmentSubtitle>
-          </InvestmentBottom>
-        </InvestmentPic>
-        <InvestmentParagraph>
-          <span>Product Price</span>
-          <span>₦400,000</span>
-        </InvestmentParagraph>
-        <InvestmentHeading>
-          <span>Daily Income (₦)</span>
-          <span>Total Income(₦)</span>
-        </InvestmentHeading>
-        <InvestmentHeading6>
-          <span>
-            ₦<b>80,000</b>
-          </span>
-          <span>
-            ₦<b>2,320,000</b>
-          </span>
-        </InvestmentHeading6>
-        <InvestmentButton
-          data-dai="ALUMINIUM-ION-1"
-          data-money="2000"
-          data-id="100"
-          data-type_id="1"
-          onClick={() => handleRouting(400000)}
-        >
-          Invest Now
-        </InvestmentButton>
-        <p>Validity: 29 days</p>
-      </InvestmentItem>
     </InvestmentContainer>
   );
 };

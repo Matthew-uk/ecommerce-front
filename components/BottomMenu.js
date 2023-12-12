@@ -7,6 +7,9 @@ import { FiSend } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { IoShareSocialOutline } from "react-icons/io5";
+import { TbCurrencyNaira } from "react-icons/tb";
+// import { FaUser } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa6";
 import Link from "next/link";
 
 const BottomNavContainer = styled.div`
@@ -45,21 +48,35 @@ const BottomNav = () => {
         <CiHome size={20} />
         Home
       </NavItem>
-      <NavItem href={"/order"}>
-        <IoReorderThreeSharp size={20} />
-        Order
-      </NavItem>
       <NavItem href={"/link"}>
         <IoShareSocialOutline size={20} />
         Invite
+      </NavItem>
+      <NavItem href={"/packages"}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "1px solid white",
+            borderRadius: "100px",
+            width: "1.3em",
+            height: "1.3em",
+            padding: "0.1em",
+          }}
+        >
+          <TbCurrencyNaira size={20} />
+        </div>
+        Packages
       </NavItem>
       <NavItem href={"/team"}>
         <RiTeamLine size={20} />
         Team
       </NavItem>
-      <NavItem href={"https://t.me/omasinc"}>
-        <BiSupport size={20} />
-        Contact Us
+      {/* <NavItem href={"https://t.me/+23eQgUNdn0U4NjFk"}> */}
+      <NavItem href={"/profile"}>
+        <FaRegUser size={20} style={{ color: "#fff" }} />
+        Profile
       </NavItem>
     </BottomNavContainer>
   );

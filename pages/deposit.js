@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { useUser } from "@/store/store";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 
 const DepositContainer = styled.div`
@@ -17,12 +18,14 @@ const DepositContainer = styled.div`
   color: #fff;
   padding-block: 1em;
   padding-inline: 1em;
+  /* border: 1px solid red; */
+  /* padding-top: 3em; */
   /* min-height: 80vh; */
 `;
 
 const PriceContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 1em;
   padding-bottom: 1em;
@@ -104,15 +107,21 @@ const DepositPage = () => {
   };
 
   const handleDeposit = () => {
-    // Simulate loading for 3 seconds
-    setLoading(true);
-    setTimeout(() => {
-      // Perform deposit logic here
-      console.log("Making deposit...");
-      setLoading(false);
-      router.push("/payment");
-    }, 3000);
-    setDeposit(depositAmount);
+    if (depositAmount < 4000) {
+      toast.error("Minimum Deposit of ₦4,000", {
+        autoClose: 1500,
+      });
+    } else {
+      // Simulate loading for 3 seconds
+      setLoading(true);
+      setTimeout(() => {
+        setDeposit(depositAmount);
+        // Perform deposit logic here
+        console.log("Making deposit...");
+        setLoading(false);
+        router.push("/payment");
+      }, 3000);
+    }
   };
 
   return (
@@ -123,11 +132,10 @@ const DepositPage = () => {
           <p>Enter/Select the amount you would like to deposit.</p>
           <p>Choose Amount:</p>
           <PriceContainer>
-            <Price onClick={() => handleChangeAmount(2000)}>₦2,000</Price>
-            <Price onClick={() => handleChangeAmount(5000)}>₦5,000</Price>
-            <Price onClick={() => handleChangeAmount(10000)}>₦10,000</Price>
-            <Price onClick={() => handleChangeAmount(20000)}>₦20,000</Price>
-            <Price onClick={() => handleChangeAmount(25000)}>₦25,000</Price>
+            <Price onClick={() => handleChangeAmount(4000)}>₦4,000</Price>
+            <Price onClick={() => handleChangeAmount(8000)}>₦8,000</Price>
+            <Price onClick={() => handleChangeAmount(15000)}>₦15,000</Price>
+            <Price onClick={() => handleChangeAmount(30000)}>₦30,000</Price>
             <Price onClick={() => handleChangeAmount(50000)}>₦50,000</Price>
             <Price onClick={() => handleChangeAmount(100000)}>₦100,000</Price>
             <Price onClick={() => handleChangeAmount(200000)}>₦200,000</Price>
