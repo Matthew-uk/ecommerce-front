@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Cookies from "js-cookies";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Hero = styled.div`
   display: flex;
@@ -152,23 +153,33 @@ const SignupPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
     try {
-      setLoading(true);
-      const data = {
-        email,
-        password,
-        referer,
-        fullName,
-      };
-      console.log(data);
-      const res = await axios.post(
-        "https://cute-erin-seahorse-boot.cyclic.app/api/users/register",
-        data
-      );
-      console.log(res.data);
-      Cookies.setItem("token", res.data.user.token);
-      router.push("/account");
+      if (email && password && fullName) {
+        setLoading(true);
+        const data = {
+          email,
+          password,
+          referer,
+          fullName,
+        };
+        console.log(data);
+        const res = await axios.post(
+          "https://cute-erin-seahorse-boot.cyclic.app/api/users/register",
+          data
+        );
+        console.log(res.data);
+        Cookies.setItem("token", res.data.user.token);
+        router.push("/account");
+      } else {
+        toast.error("Enter Required Details...");
+      }
     } catch (error) {
+      if (error.response?.data?.message !== undefined) {
+        toast.error(error.response?.data?.message);
+      } else {
+        toast.error(error.message);
+      }
       console.log(error);
     } finally {
       setLoading(false);

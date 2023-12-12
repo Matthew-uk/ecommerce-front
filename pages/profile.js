@@ -5,6 +5,7 @@ import { FiDownload, FiUpload } from "react-icons/fi";
 import { FaHistory } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 import { LuLogOut } from "react-icons/lu";
+import { BiSupport } from "react-icons/bi";
 import styled from "styled-components";
 import Link from "next/link";
 import Cookies from "js-cookies";
@@ -101,6 +102,10 @@ const Profile = () => {
           <ProfileContent href={"/team"}>
             <RiTeamFill size={25} />
             My Team
+          </ProfileContent>
+          <ProfileContent href={"https://t.me/+23eQgUNdn0U4NjFk"}>
+            <BiSupport size={25} />
+            Contact Us
           </ProfileContent>
         </ProfileContents>
         <ProfileContentButton onClick={handleLogOut}>

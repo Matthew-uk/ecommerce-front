@@ -145,50 +145,54 @@ const Packages = () => {
         </PackagesHeader>
         <PackagesBody></PackagesBody>
         <InvestmentContainer>
-          <InvestmentItem>
-            <ActiveInvestment>Active</ActiveInvestment>
-            <InvestmentPic>
-              <InvestmentImage
-                src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
-                alt=""
-              />
-              <InvestmentBottom>
-                <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
-                <InvestmentSubtitle>
-                  Product Price: <span>₦{sub.toLocaleString()}</span>
-                </InvestmentSubtitle>
-                <InvestmentSubtitle>
-                  Daily Income<span>₦{(sub / 5).toLocaleString()}</span>
-                </InvestmentSubtitle>
-              </InvestmentBottom>
-            </InvestmentPic>
-            <InvestmentParagraph>
-              <span>Product Price</span>
-              <span>₦{sub.toLocaleString()}</span>
-            </InvestmentParagraph>
-            <InvestmentHeading>
-              <span>Daily Income (₦)</span>
-              <span>Total Income(₦)</span>
-            </InvestmentHeading>
-            <InvestmentHeading6>
-              <span>
-                ₦<b>{(sub / 5).toLocaleString()}</b>
-              </span>
-              <span>
-                ₦<b>{((sub / 5) * 9).toLocaleString()}</b>
-              </span>
-            </InvestmentHeading6>
-            <InvestmentButton
-              data-dai="ALUMINIUM-ION-1"
-              data-money="2000"
-              data-id="100"
-              data-type_id="1"
-              onClick={() => console.log("Hello")}
-            >
-              Invest Now
-            </InvestmentButton>
-            <p>Validity: 9 Days</p>
-          </InvestmentItem>
+          {sub ? (
+            <InvestmentItem>
+              <ActiveInvestment>Active</ActiveInvestment>
+              <InvestmentPic>
+                <InvestmentImage
+                  src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+                  alt=""
+                />
+                <InvestmentBottom>
+                  <InvestmentTitle>ALUMINIUM-ION-1</InvestmentTitle>
+                  <InvestmentSubtitle>
+                    Product Price: <span>₦{sub.toLocaleString()}</span>
+                  </InvestmentSubtitle>
+                  <InvestmentSubtitle>
+                    Daily Income<span>₦{(sub / 5).toLocaleString()}</span>
+                  </InvestmentSubtitle>
+                </InvestmentBottom>
+              </InvestmentPic>
+              <InvestmentParagraph>
+                <span>Product Price</span>
+                <span>₦{sub.toLocaleString()}</span>
+              </InvestmentParagraph>
+              <InvestmentHeading>
+                <span>Daily Income (₦)</span>
+                <span>Total Income(₦)</span>
+              </InvestmentHeading>
+              <InvestmentHeading6>
+                <span>
+                  ₦<b>{(sub / 5).toLocaleString()}</b>
+                </span>
+                <span>
+                  ₦<b>{((sub / 5) * 9).toLocaleString()}</b>
+                </span>
+              </InvestmentHeading6>
+              <InvestmentButton
+                data-dai="ALUMINIUM-ION-1"
+                data-money="2000"
+                data-id="100"
+                data-type_id="1"
+                onClick={() => console.log("Hello")}
+              >
+                Invest Now
+              </InvestmentButton>
+              <p>Validity: 9 Days</p>
+            </InvestmentItem>
+          ) : (
+            <p>NO active Packages</p>
+          )}
         </InvestmentContainer>
       </Center>
     </PackagesContainer>

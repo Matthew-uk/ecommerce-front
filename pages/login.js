@@ -128,6 +128,7 @@ const SubmitBtn = styled.button`
   }
   :disabled {
     opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 
@@ -152,20 +153,24 @@ const LoginPage = () => {
     };
     console.log({ email, password });
     try {
-      setLoading(true);
-      console.log(loading);
-      const res = await axios.post(
-        "https://cute-erin-seahorse-boot.cyclic.app/api/users/login",
-        loginDetails
-      );
-      console.log(res.data.user.token);
-      Cookies.setItem("token", res.data.user.token);
-      router.push("/account");
-      console.log(res);
-      toast.success("Login Successful");
+      if (email && password) {
+        setLoading(true);
+        console.log(loading);
+        const res = await axios.post(
+          "https://cute-erin-seahorse-boot.cyclic.app/api/users/login",
+          loginDetails
+        );
+        console.log(res.data.user.token);
+        Cookies.setItem("token", res.data.user.token);
+        router.push("/account");
+        console.log(res);
+        toast.success("Login Successful");
+      } else {
+        toast.error("Input Email and Password");
+      }
     } catch (error) {
       console.log(error);
-      if (error.response.data.message) {
+      if (error.response?.data?.message !== undefined) {
         toast.error(error.response.data.message);
       } else {
         toast.error(error.message);
@@ -204,9 +209,10 @@ const LoginPage = () => {
             >
               <label>Email address</label>
               <input
-                style={{ fontFamily: "revert-layer", letterSpacing: "1.5px" }}
+                // style={{ fontFamily: "revert-layer" }}
                 type="email"
                 placeholder="Email/Phone Number"
+                required={true}
               />
             </InputCard>
             <InputCard
