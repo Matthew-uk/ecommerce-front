@@ -266,7 +266,7 @@ const PaymentPage = () => {
               data-clipboard-target="#accountNumber"
             >
               <span id="accountNumber" style={{ fontSize: "1rem" }}>
-                5455120201
+                {/* 5455120201 */}
               </span>
               <IconContext.Provider
                 value={{ size: "1.5rem", color: "#4a90e2" }}
@@ -283,7 +283,7 @@ const PaymentPage = () => {
               data-clipboard-target="#bankName"
             >
               <span id="bankName" style={{ fontSize: "1rem" }}>
-                Moniepoint MFB
+                {/* Moniepoint MFB */}
               </span>
               <IconContext.Provider
                 value={{ size: "1.5rem", color: "#4a90e2" }}
@@ -300,7 +300,7 @@ const PaymentPage = () => {
               data-clipboard-target="#accountName"
             >
               <span id="accountName" style={{ fontSize: "1rem" }}>
-                PRINCESS ISAAC
+                {/* PRINCESS ISAAC */}
               </span>
               <IconContext.Provider
                 value={{ size: "1.5rem", color: "#4a90e2" }}

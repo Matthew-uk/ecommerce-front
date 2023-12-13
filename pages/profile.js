@@ -103,7 +103,9 @@ const Profile = () => {
             <RiTeamFill size={25} />
             My Team
           </ProfileContent>
-          <ProfileContent href={"https://t.me/+23eQgUNdn0U4NjFk"}>
+          <ProfileContent
+          // href={"https://t.me/+23eQgUNdn0U4NjFk"}
+          >
             <BiSupport size={25} />
             Contact Us
           </ProfileContent>
