@@ -211,7 +211,7 @@ const PaymentPage = () => {
       );
       console.log(res.data);
       router.push("/account");
-      toast.success("Withdrawal in process... Expect payment within 24hours");
+      toast.success("Deposit in process... Expect reflection within 24 hours");
     } catch (error) {
       console.log(error);
     } finally {

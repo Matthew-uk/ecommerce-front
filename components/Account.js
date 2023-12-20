@@ -62,7 +62,7 @@ const AccountActionItem = styled.div`
 const AccountSection = () => {
   const { name, balance, referralCode } = useUser();
   const [isCopied, setIsCopied] = useState(false);
-  const referralCodeUrl = `https://omars.vercel.app/signup?ref=${referralCode}`;
+  const referralCodeUrl = `https://twinkas.vercel.app/signup?ref=${referralCode}`;
 
   const copyReferralCode = () => {
     // Replace 'your-referral-code' with the actual code you want to copy

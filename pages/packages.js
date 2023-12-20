@@ -121,7 +121,7 @@ const Packages = () => {
   const getUserPackage = async () => {
     const token = Cookies.getItem("token");
     const res = await axios.get(
-      `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
+      `https://node-backend-v1.onrender.com/api/users/`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

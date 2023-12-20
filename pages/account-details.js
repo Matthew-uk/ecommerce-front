@@ -105,7 +105,7 @@ const DarkWithdraw = () => {
       setLoading(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
+        `https://node-backend-v1.onrender.com/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -902,7 +902,7 @@ const DarkWithdraw = () => {
       try {
         setWithdrawLoading(true);
         const res = await axios.post(
-          "https://cute-erin-seahorse-boot.cyclic.app/api/withdraw",
+          "https://node-backend-v1.onrender.com/api/withdraw",
           {
             userId,
             withdraw: withdrawal,
@@ -913,7 +913,7 @@ const DarkWithdraw = () => {
         );
         console.log(res.data);
         toast.success(
-          "Your Money is on it's way. You will your receive payment within 24 Hours. Thanks for trusting OMAS."
+          "Your Money is on it's way. You will your receive payment within 24 Hours."
         );
         router.push("/account");
       } catch (error) {

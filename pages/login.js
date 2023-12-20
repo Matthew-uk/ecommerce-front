@@ -157,7 +157,7 @@ const LoginPage = () => {
         setLoading(true);
         console.log(loading);
         const res = await axios.post(
-          "https://cute-erin-seahorse-boot.cyclic.app/api/users/login",
+          "https://node-backend-v1.onrender.com/api/users/login",
           loginDetails
         );
         console.log(res.data.user.token);

@@ -32,7 +32,7 @@ const Order = () => {
       setLoadingUser(true);
       const token = Cookies.getItem("token");
       const res = await axios.get(
-        `https://cute-erin-seahorse-boot.cyclic.app/api/users/`,
+        `https://node-backend-v1.onrender.com/api/users/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ const Order = () => {
     try {
       setLoadingData(true);
       const res = await axios.get(
-        `https://cute-erin-seahorse-boot.cyclic.app/api/deposit/user?id=${userId}`
+        `https://node-backend-v1.onrender.com/api/deposit/user?id=${userId}`
       );
       console.log(res.data);
       setDeposits(res.data);
