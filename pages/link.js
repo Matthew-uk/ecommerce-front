@@ -149,6 +149,7 @@ const Link = () => {
         backgroundSize: "cover",
         width: "100%",
         marginTop: "-1.4em",
+        backgroundColor: "#000",
       }}
     >
       <BottomNav />
