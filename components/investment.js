@@ -196,7 +196,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -240,7 +240,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -284,7 +284,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -328,7 +328,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -372,7 +372,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -416,7 +416,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -460,7 +460,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>
@@ -504,7 +504,7 @@ const Investment = () => {
         <InvestmentItem>
           <InvestmentPic>
             <InvestmentImage
-              src="https://livent.ltd/static/livent/img/ic_pic1@2x.png"
+              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
               alt=""
             />
             <InvestmentBottom>

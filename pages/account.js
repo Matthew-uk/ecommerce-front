@@ -86,12 +86,12 @@ const AccountPage = () => {
           </div>
         ) : (
           <>
-            <ImgContainer>
+            {/* <ImgContainer>
               <img
                 style={{ width: "100%" }}
                 src="https://livent.ltd/static/livent/img/banner2.png"
               />
-            </ImgContainer>
+            </ImgContainer> */}
             <AccountSection />
           </>
         )}

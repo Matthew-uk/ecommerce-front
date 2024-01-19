@@ -112,7 +112,7 @@ const AccountSection = () => {
           <p style={{ color: "#fff", paddingTop: "1em" }}>
             Hello, <span style={{ fontWeight: "bolder" }}>{name}</span>
             <br />
-            Welcome to <span style={{ fontWeight: "bolder" }}>TWINKAS</span>
+            Welcome to <span style={{ fontWeight: "bolder" }}>SOBAZ</span>
           </p>
           {/* <p style={{ color: "#fff", paddingTop: "1em" }}></p> */}
           <div>
