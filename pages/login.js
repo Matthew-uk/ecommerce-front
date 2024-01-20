@@ -195,7 +195,7 @@ const LoginPage = () => {
     <div>
       <Hero>
         <HeroLeft>
-          <h2>Twinkas!!!</h2>
+          <h2>SOBAZ!!!</h2>
         </HeroLeft>
         <HeroRight className="right">
           <Form id="form" className="form" onSubmit={handleLogin}>

@@ -243,7 +243,7 @@ const PaymentPage = () => {
     <Wrapper>
       <Header>
         <h2 style={{ color: "#ff69b4", textAlign: "center" }}>
-          TWINKAS PAYMENT GATEWAY
+          SOBAZ PAYMENT GATEWAY
         </h2>
       </Header>
       <MethodMain>
